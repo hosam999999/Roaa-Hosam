@@ -1321,7 +1321,7 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // RSVP Submission -> Hosamassadi@gmail.com + CC roaajomaa908@gmail.com
+        // RSVP Submission -> hosammilan@gmail.com + CC roaajomaa908@gmail.com
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             var form = this;
@@ -1334,7 +1334,7 @@
             formData.append('_cc', 'roaajomaa908@gmail.com');
             formData.append('_captcha', 'false');
 
-            fetch('https://formsubmit.co/ajax/Hosamassadi@gmail.com', {
+            fetch('https://formsubmit.co/ajax/hosammilan@gmail.com', {
                 method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
