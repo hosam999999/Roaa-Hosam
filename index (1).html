@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Roaa & Hosam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Tajawal', sans-serif; 
+            background-color: #fdfbf7; 
+            overflow-x: hidden; 
+        }
+        .amiri { font-family: 'Amiri', serif; }
+        
+        /* Page 1: The Cover */
+        #page1 {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Background uses the Swan image you provided */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('image_0fe8ff.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        #page1 h1 { 
+            font-family: 'Amiri', serif; 
+            font-size: 3.5rem; 
+            margin-bottom: 15px; 
+            letter-spacing: 2px;
+        }
+        #page1 p { 
+            font-size: 1.3rem; 
+            max-width: 650px; 
+            padding: 0 20px; 
+            line-height: 1.8; 
+            direction: ltr; /* English text */
+            margin-bottom: 40px;
+        }
+        .enter-btn { 
+            padding: 12px 40px; 
+            background: transparent; 
+            border: 1px solid white; 
+            color: white; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-size: 1.2rem; 
+            font-family: 'Tajawal', sans-serif;
+            transition: background 0.3s; 
+        }
+        .enter-btn:hover { background: rgba(255,255,255,0.2); }
+
+        /* Page 2: The Reveal (Wax Seal) */
+        #page2 {
+            height: 100vh;
+            display: none; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #900020; /* Vibrant Crimson/Burgundy Red */
+            color: white;
+            text-align: center;
+        }
+        .seal-container { 
+            cursor: pointer; 
+            transition: transform 0.3s; 
+            margin-top: 40px;
+        }
+        .seal-container:hover { transform: scale(1.05); }
+        .seal-img { 
+            width: 180px; 
+            border-radius: 50%;
+            /* Adds a slight red tint to your original seal image to match the theme */
+            filter: sepia(0.5) hue-rotate(320deg) saturate(2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Page 3: The Main Invitation */
+        #page3 {
+            display: none;
+            /* Uses your rose image as a top border/background */
+            background: #fdfbf7 url('image_0f8b65.jpg') top center/contain no-repeat;
+            color: #4a4a4a;
+            padding: 180px 20px 80px;
+            text-align: center;
+        }
+        .content-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(253, 251, 247, 0.95);
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+        }
+        .gold-text { color: #900020; } /* Replaced gold with elegant red shades */
+        
+        .countdown { 
+            display: flex; 
+            justify-content: center; 
+            gap: 15px; 
+            direction: ltr; 
+            margin: 30px 0; 
+        }
+        .time-box { 
+            background: #900020; 
+            color: white; 
+            padding: 15px; 
+            border-radius: 10px; 
+            min-width: 70px; 
+            box-shadow: 0 4px 10px rgba(144, 0, 32, 0.2);
+        }
+        .btn { 
+            background: #900020; 
+            color: white; 
+            padding: 12px 30px; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            display: inline-block; 
+            margin-top: 20px;
+            transition: opacity 0.3s;
+        }
+        .btn:hover { opacity: 0.8; }
+        
+        .rsvp-form { 
+            max-width: 400px; 
+            margin: 0 auto; 
+            text-align: right; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+        }
+        .rsvp-form input, .rsvp-form select, .rsvp-form button { 
+            padding: 15px; 
+            font-family: 'Tajawal', sans-serif; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            font-size: 1rem;
+        }
+        .rsvp-form button { 
+            background: #900020; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Fade animation classes */
+        .fade-out { animation: fadeOut 0.8s forwards; }
+        .fade-in { animation: fadeIn 0.8s forwards; }
+        
+        @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+    <!-- Background Music: Pharrell Williams - Happy -->
+    <audio id="bgMusic" loop>
+        <source src="happy.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- PAGE 1: The Cover -->
+    <div id="page1">
+        <h1 style="font-family: 'Amiri', serif; font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 5px;">THE WEDDING OF</h1>
+        <h1 style="font-family: 'Amiri', serif; font-style: italic; font-size: 4.5rem; margin-top: 0;">Roaa & Hosam</h1>
+        <p>Where two souls meet, love writes its most beautiful chapter — and we would be honoured to begin ours with you beside us.</p>
+        <button class="enter-btn" onclick="goToPage2()">اضغط للمتابعة</button>
+    </div>
+
+    <!-- PAGE 2: The Seal -->
+    <div id="page2">
+        <h2 class="amiri" style="font-size: 3.5rem; font-style: italic; margin-bottom: 0;">Roaa & Hosam</h2>
+        <div class="seal-container" onclick="goToPage3()">
+            <img src="image_0fde1a.jpg" alt="Wax Seal" class="seal-img">
+            <p class="amiri" style="margin-top: 30px; font-size: 1.6rem;">اضغط على الظرف لفتحه</p>
+        </div>
+    </div>
+
+    <!-- PAGE 3: The Invitation -->
+    <div id="page3">
+        <div class="content-box">
+            
+            <h2 class="amiri gold-text" style="font-size: 2.2rem; margin-bottom: 30px;">بِسْمِ اللّهِ الرحمنِ الرَّحِيمِ</h2>
+            
+            <p style="font-size: 1.4rem; line-height: 2; color: #555;">
+                في محضر الحب، أريدكم حولي؛<br>
+                عائلة القرب، وصحبة العمر،<br>
+                وأحباب الروح، وكل من كان لوجوده<br>
+                في قلبي أثر جميل.<br><br>
+                بكل الود والمحبة، أدعوكم لمشاركتي<br>
+                فرحة زفافي، فبحضوركم<br>
+                تكتمل بهجة هذه الليلة.
+            </p>
+            
+            <div style="margin: 40px 0;">
+                <img src="image_0f8b05.jpg" alt="Two Swans" style="width:100%; max-width: 350px; border-radius: 10px;">
+            </div>
+
+            <h3 class="amiri gold-text" style="font-size: 2.2rem; margin-top: 40px;">رؤى جمعة الرقيق</h3>
+            <p style="font-size: 1.2rem; color: #666; margin-top: -10px;">ابنة المرحومة نجوى الواعر</p>
+            
+            <div style="font-family: 'Amiri', serif; color: #900020; margin: 30px 0; padding: 25px; border-top: 1px solid #e0c0c0; border-bottom: 1px solid #e0c0c0; font-size: 1.3rem; line-height: 1.8;">
+                رحم اللّٰه قلبًا تمنّيت أن يكون أول الحاضرين،<br>وجعل دعواتها وأثرها الطيب رفيقًا لي<br>في أجمل أيام عمري.
+            </div>
+
+            <!-- Gregorian Date -->
+            <div style="margin: 60px 0;">
+                <h3 class="amiri gold-text" style="font-size: 2.4rem; margin-bottom: 10px;">موعد الحفل</h3>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+                    <span style="font-size: 1.5rem;">ديسمبر</span>
+                    <span style="font-size: 4rem; font-family: 'Amiri', serif; color: #900020; line-height: 1;">5</span>
+                    <span style="font-size: 1.5rem;">2026</span>
+                </div>
+            </div>
+
+            <div class="countdown">
+                <div class="time-box"><span id="days" style="font-size: 2.2rem; font-family:'Amiri';">00</span><br><small>يوم</small></div>
+                <div class="time-box"><span id="hours" style="font-size: 2.2rem; font-family:'Amiri';">00</span><br><small>ساعة</small></div>
+                <div class="time-box"><span id="minutes" style="font-size: 2.2rem; font-family:'Amiri';">00</span><br><small>دقيقة</small></div>
+                <div class="time-box"><span id="seconds" style="font-size: 2.2rem; font-family:'Amiri';">00</span><br><small>ثانية</small></div>
+            </div>
+
+            <div style="margin: 60px 0;">
+                <h3 class="amiri gold-text" style="font-size: 2.4rem;">مكان الحفل</h3>
+                <p style="font-size: 1.6rem; margin-top: -10px;">قاعة فايف ستارز</p>
+                <a href="https://maps.app.goo.gl/VdpLCPVS866tfDZq9?g_st=ic" target="_blank" class="btn">عرض الموقع على الخريطة</a>
+            </div>
+
+            <!-- Custom Restrictions Message -->
+            <div style="background: rgba(144, 0, 32, 0.05); padding: 30px; border-radius: 12px; margin: 40px 0;">
+                <h3 class="amiri gold-text" style="font-size: 1.8rem; margin-top: 0;">ممنوع اصطحاب الأطفال</h3>
+                <p style="font-size: 1.2rem; color: #555; line-height: 1.8;">
+                    أما أطفالنا الأحباء، فلهم مكانة لا توصف في قلوبنا، فجنة الأطفال أحضان بيوتهم الدافئة.<br><br>
+                    بكل محبة، أرجو احترام خصوصية مناسبتي، والامتناع عن التصوير أو مشاركة أي صور أو مقاطع منها، فبعض اللحظات أحب أن تبقى ذكرى خاصة بي.
+                </p>
+            </div>
+
+            <!-- RSVP Section -->
+            <h3 class="amiri gold-text" style="font-size: 2.4rem; margin-top: 60px;">تأكيد الحضور</h3>
+            <p style="color: #666; margin-bottom: 30px;">يسعدنا تأكيد حضوركم ومشاركتنا أجمل لحظات العمر</p>
+            
+            <form id="rsvp-form" class="rsvp-form">
+                <input type="text" id="name" required placeholder="الاسم الكريم">
+                <select id="attendance" required>
+                    <option value="" disabled selected>يرجى الاختيار...</option>
+                    <option value="yes">نعم، سأحضر بكل سرور</option>
+                    <option value="no">أعتذر، لن أتمكن من الحضور</option>
+                </select>
+                <button type="submit">تأكيد الحضور</button>
+            </form>
+            <div id="rsvp-success" style="display: none; color: #900020; font-weight: bold; font-size: 1.3rem; margin-top: 30px;">شكراً لك! تم إرسال ردك بنجاح.</div>
+        </div>
+    </div>
+
+    <script>
+        function goToPage2() {
+            let p1 = document.getElementById('page1');
+            p1.classList.add('fade-out');
+            setTimeout(() => {
+                p1.style.display = 'none';
+                let p2 = document.getElementById('page2');
+                p2.style.display = 'flex';
+                p2.classList.add('fade-in');
+            }, 800);
+            
+            // Attempt to start music early (browsers require user interaction first)
+            document.getElementById('bgMusic').play().catch(e => console.log("Waiting for next click to play audio"));
+        }
+        
+        function goToPage3() {
+            let p2 = document.getElementById('page2');
+            p2.classList.add('fade-out');
+            
+            // Guarantee music plays on this click
+            document.getElementById('bgMusic').play();
+            
+            setTimeout(() => {
+                p2.style.display = 'none';
+                let p3 = document.getElementById('page3');
+                p3.style.display = 'block';
+                p3.classList.add('fade-in');
+                window.scrollTo(0,0);
+            }, 800);
+        }
+
+        // Countdown Timer Logic
+        var countDownDate = new Date("Dec 5, 2026 00:00:00").getTime();
+        setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            
+            if (distance > 0) {
+                document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+            }
+        }, 1000);
+
+        // RSVP Form Submit Handler
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('rsvp-success').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
