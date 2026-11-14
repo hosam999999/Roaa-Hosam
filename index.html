@@ -6,18 +6,19 @@
     <title>The Wedding of Roaa & Hosam</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rose-deep: #6e1423;
-            --rose-royal: #8f1d30;
-            --rose-bright: #b83248;
-            --gold-light: #f6e29c;
+            --rose-deep: #7a1628;
+            --rose-royal: #9e2036;
+            --rose-bright: #c93b54;
+            --rose-soft: #f4bbc5;
+            --gold-light: #fbe8a6;
             --gold-mid: #d4af37;
-            --gold-dark: #997415;
-            --paper: #fbf8f3;
-            --ink: #3d2b2e;
-            --muted: #7a6366;
+            --gold-dark: #9c7a19;
+            --paper: #fcf9f5;
+            --ink: #3a2629;
+            --muted: #7a6064;
         }
 
         * {
@@ -30,9 +31,9 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #2b0810;
+            background-color: #fdf6f7;
             color: var(--ink);
-            font-family: 'Amiri', serif;
+            font-family: 'Cairo', sans-serif;
             -webkit-font-smoothing: antialiased;
             user-select: none;
         }
@@ -43,29 +44,29 @@
             top: 16px;
             left: 16px;
             z-index: 2000;
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            background: rgba(110, 20, 35, 0.82);
-            border: 1.5px solid var(--gold-mid);
-            color: var(--gold-light);
+            background: rgba(158, 32, 54, 0.9);
+            border: 2px solid var(--gold-light);
+            color: #fff;
             display: none;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
-            transition: transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(122, 22, 40, 0.35);
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
         #audio-toggle:hover {
             transform: scale(1.08);
         }
         #audio-toggle svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             fill: currentColor;
         }
 
-        /* ==================== SCREEN 1: ROMANTIC HEART COVER ==================== */
+        /* ==================== SCREEN 1: JOYFUL ROSE BOUQUET COVER ==================== */
         #screen-cover {
             position: fixed;
             inset: 0;
@@ -75,25 +76,26 @@
             justify-content: center;
             align-items: center;
             padding: 24px;
+            /* Bright, joyful wedding rose bouquet background */
             background: 
-                radial-gradient(circle at 50% 35%, rgba(184, 50, 72, 0.45) 0%, rgba(45, 8, 16, 0.94) 75%),
-                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1400&q=85') center/cover no-repeat;
+                linear-gradient(180deg, rgba(255, 240, 243, 0.72) 0%, rgba(180, 45, 70, 0.58) 55%, rgba(110, 18, 35, 0.82) 100%),
+                url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=85') center/cover no-repeat;
             color: #fff;
             text-align: center;
             transition: opacity 0.85s ease, visibility 0.85s ease;
         }
 
         .cover-heart-emblem {
-            width: 110px;
-            height: 110px;
-            margin-bottom: 14px;
-            filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.55));
+            width: 105px;
+            height: 105px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 6px 18px rgba(158, 32, 54, 0.45));
             animation: heartbeat 2.4s infinite ease-in-out;
         }
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            15% { transform: scale(1.09); }
+            15% { transform: scale(1.08); }
             30% { transform: scale(0.98); }
             45% { transform: scale(1.05); }
         }
@@ -101,19 +103,20 @@
         .cover-frame {
             width: 100%;
             max-width: 430px;
-            border: 1px solid rgba(246, 226, 156, 0.45);
-            border-radius: 24px;
+            border: 1.5px solid rgba(255, 255, 255, 0.75);
+            border-radius: 26px;
             padding: 34px 24px;
-            background: rgba(30, 4, 10, 0.48);
-            backdrop-filter: blur(6px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 0 25px rgba(212, 175, 55, 0.12);
+            background: rgba(122, 22, 40, 0.52);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 20px 50px rgba(90, 10, 25, 0.35), inset 0 0 25px rgba(255, 255, 255, 0.15);
             direction: ltr;
         }
 
         .cover-subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
-            letter-spacing: 5px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--gold-light);
             margin-bottom: 6px;
@@ -121,46 +124,47 @@
 
         .cover-names {
             font-family: 'Great Vibes', cursive;
-            font-size: 4.1rem;
+            font-size: 4.2rem;
             font-weight: 400;
             color: #fff;
             line-height: 1.1;
             margin: 6px 0 16px;
-            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 4px 16px rgba(80, 10, 20, 0.5);
         }
 
         .cover-divider {
             width: 75%;
-            height: 1px;
+            height: 1.5px;
             margin: 0 auto 16px;
-            background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
         }
 
         .cover-quote {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.22rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.25rem;
+            line-height: 1.55;
+            color: #fff;
         }
 
         .continue-btn {
-            margin-top: 32px;
-            padding: 10px 36px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid var(--gold-light);
+            margin-top: 28px;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, var(--rose-bright), var(--rose-deep));
+            border: 1.5px solid var(--gold-light);
             border-radius: 40px;
             color: #fff;
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 1.45rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 24px rgba(110, 18, 35, 0.45);
             animation: pulseBtn 2.2s infinite ease-in-out;
         }
 
         @keyframes pulseBtn {
-            0%, 100% { transform: translateY(0); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25); }
-            50% { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.55); }
+            0%, 100% { transform: translateY(0); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3); }
+            50% { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(212, 175, 55, 0.65); }
         }
 
         /* ==================== SCREEN 2: PRESTIGIOUS HEART WAX SEAL ==================== */
@@ -172,7 +176,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #a82439 0%, #5e0d1b 100%);
+            background: radial-gradient(circle at center, #c4324b 0%, #7a1426 100%);
             color: #fff;
             text-align: center;
             opacity: 0;
@@ -181,7 +185,6 @@
             overflow: hidden;
         }
 
-        /* Velvet Envelope Flap */
         .envelope-flap {
             position: absolute;
             top: 0;
@@ -190,22 +193,13 @@
             width: 140vw;
             max-width: 680px;
             height: 58vh;
-            background: linear-gradient(180deg, #8c192b 0%, #680f1d 100%);
+            background: linear-gradient(180deg, #9e1f35 0%, #751122 100%);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-top: 11vh;
-        }
-
-        /* Gold Trim along Envelope Edge */
-        .envelope-flap::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent 48%, rgba(212, 175, 55, 0.5) 50%, transparent 52%);
-            pointer-events: none;
         }
 
         .envelope-names {
@@ -213,7 +207,7 @@
             font-size: 3.6rem;
             color: var(--gold-light);
             direction: ltr;
-            text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+            text-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
             z-index: 2;
         }
 
@@ -232,24 +226,25 @@
         }
 
         .prestigious-wax-svg {
-            width: 230px;
-            height: 230px;
-            filter: drop-shadow(0 18px 28px rgba(20, 0, 5, 0.75));
+            width: 225px;
+            height: 225px;
+            filter: drop-shadow(0 18px 28px rgba(40, 0, 10, 0.65));
         }
 
         .open-envelope-pill {
             margin-top: 14px;
             padding: 10px 34px;
             border-radius: 40px;
-            background: rgba(45, 5, 12, 0.65);
-            border: 1px solid var(--gold-mid);
+            background: rgba(65, 8, 18, 0.72);
+            border: 1.5px solid var(--gold-mid);
             color: var(--gold-light);
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 1.35rem;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
         }
 
-        /* ==================== SCREEN 3: PAGED INVITATION DECK ==================== */
+        /* ==================== SCREEN 3: 7-PAGE INVITATION DECK ==================== */
         #screen-deck {
             position: fixed;
             inset: 0;
@@ -258,11 +253,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at center, #5e111f 0%, #2b060d 100%);
+            background: radial-gradient(circle at center, #8c1d31 0%, #420913 100%);
             padding: 14px 12px 76px;
         }
 
-        /* Individual Invitation Card Frame */
         .page-card {
             width: 100%;
             max-width: 480px;
@@ -270,13 +264,13 @@
             max-height: 760px;
             background-color: var(--paper);
             background-image: 
-                radial-gradient(rgba(143, 29, 48, 0.03) 1px, transparent 0),
+                radial-gradient(rgba(158, 32, 54, 0.03) 1px, transparent 0),
                 radial-gradient(rgba(212, 175, 55, 0.04) 1px, var(--paper) 0);
             background-size: 22px 22px;
             background-position: 0 0, 11px 11px;
             border-radius: 26px;
             border: 2px solid var(--gold-mid);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), inset 0 0 0 6px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), inset 0 0 0 6px rgba(212, 175, 55, 0.15);
             position: relative;
             overflow-y: auto;
             overflow-x: hidden;
@@ -284,7 +278,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            animation: cardFlipIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: cardFlipIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         .page-card.active {
@@ -292,24 +286,24 @@
         }
 
         @keyframes cardFlipIn {
-            0% { opacity: 0; transform: translateY(18px) scale(0.97); }
+            0% { opacity: 0; transform: translateY(16px) scale(0.97); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Top Red Roses Header on Every Card */
+        /* Joyful Bright Wedding Roses Top Banner on Every Card */
         .card-roses-top {
             width: 100%;
-            height: 135px;
+            height: 130px;
             flex-shrink: 0;
-            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80') top center/cover no-repeat;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
         }
 
         .card-body {
             width: 100%;
-            padding: 0 22px 28px;
-            margin-top: -18px;
+            padding: 0 24px 26px;
+            margin-top: -12px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -317,7 +311,6 @@
             justify-content: center;
         }
 
-        /* Diamond Divider */
         .diamond-divider {
             display: flex;
             align-items: center;
@@ -333,34 +326,35 @@
             flex: 1;
             height: 1px;
             background: var(--rose-royal);
-            opacity: 0.4;
+            opacity: 0.35;
         }
         .diamond-divider span {
             color: var(--gold-dark);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
-        .calligraphy-title {
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 2rem;
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 800;
             color: var(--rose-deep);
             margin: 6px 0 12px;
-            font-weight: 700;
         }
 
         .arabic-verse {
-            font-family: 'Amiri', serif;
-            font-size: 1.28rem;
-            line-height: 1.9;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.12rem;
+            font-weight: 500;
+            line-height: 1.95;
             color: var(--ink);
             margin-bottom: 12px;
         }
 
         /* Animated Bride & Groom SVG Container */
         .couple-heart-stage {
-            width: 210px;
-            height: 200px;
-            margin: 6px auto;
+            width: 195px;
+            height: 185px;
+            margin: 4px auto 8px;
             position: relative;
         }
         .couple-svg {
@@ -386,18 +380,19 @@
 
         /* Page 2: Bride & Mother Tribute */
         .bride-name {
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 2.35rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--rose-deep);
-            margin: 8px 0;
+            margin: 6px 0;
         }
         .tribute-frame {
-            background: rgba(143, 29, 48, 0.04);
-            border-top: 1.5px solid rgba(212, 175, 55, 0.55);
-            border-bottom: 1.5px solid rgba(212, 175, 55, 0.55);
-            padding: 20px 16px;
+            background: rgba(158, 32, 54, 0.05);
+            border-top: 1.5px solid rgba(212, 175, 55, 0.6);
+            border-bottom: 1.5px solid rgba(212, 175, 55, 0.6);
+            padding: 20px 18px;
             margin: 14px 0;
-            border-radius: 12px;
+            border-radius: 14px;
         }
 
         /* Page 3: Date, Calendar & Countdown */
@@ -406,38 +401,38 @@
             align-items: center;
             justify-content: center;
             gap: 18px;
-            margin: 8px 0 14px;
+            margin: 6px 0 12px;
         }
         .date-side {
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 1.3rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--rose-deep);
             min-width: 75px;
         }
         .date-side span {
             display: block;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
+            font-size: 1.15rem;
+            font-weight: 800;
         }
         .date-center-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.2rem;
-            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.4rem;
+            font-weight: 800;
             color: var(--rose-deep);
-            line-height: 0.9;
+            line-height: 1;
             padding: 0 18px;
-            border-right: 1px solid rgba(110, 20, 35, 0.25);
-            border-left: 1px solid rgba(110, 20, 35, 0.25);
+            border-right: 1.5px solid rgba(122, 22, 40, 0.25);
+            border-left: 1.5px solid rgba(122, 22, 40, 0.25);
         }
 
         .calendar-card {
             width: 100%;
-            background: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(212, 175, 55, 0.45);
             border-radius: 18px;
-            padding: 14px 12px;
-            margin-bottom: 14px;
+            padding: 12px;
+            margin-bottom: 12px;
         }
         .cal-grid {
             display: grid;
@@ -447,17 +442,18 @@
             align-items: center;
         }
         .cal-day-header {
-            font-family: 'Amiri', serif;
-            font-size: 0.95rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--muted);
             padding-bottom: 4px;
         }
         .cal-day {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.98rem;
             font-weight: 600;
             color: var(--ink);
-            height: 30px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -465,23 +461,23 @@
         }
         .cal-day.selected {
             color: #fff;
-            font-weight: 700;
+            font-weight: 800;
             z-index: 1;
         }
         .cal-day.selected::before {
             content: "";
             position: absolute;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: var(--rose-royal);
-            box-shadow: 0 0 0 3px rgba(143, 29, 48, 0.2);
+            box-shadow: 0 0 0 3px rgba(158, 32, 54, 0.2);
             z-index: -1;
         }
 
         .countdown-bar {
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(212, 175, 55, 0.45);
             border-radius: 16px;
             padding: 10px 6px;
@@ -491,56 +487,85 @@
         }
         .cd-item {
             text-align: center;
-            border-right: 1px solid rgba(110, 20, 35, 0.15);
+            border-right: 1px solid rgba(122, 22, 40, 0.15);
         }
         .cd-item:last-child { border-right: none; }
         .cd-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.85rem;
-            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 800;
             color: var(--rose-deep);
-            line-height: 1;
+            line-height: 1.1;
             display: block;
         }
         .cd-label {
-            font-family: 'Amiri', serif;
-            font-size: 0.9rem;
-            color: var(--ink);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--muted);
         }
 
         /* Page 4: Venue & Time */
+        .pin-icon {
+            width: 54px;
+            height: 54px;
+            fill: var(--rose-royal);
+            margin: 4px auto 8px;
+            filter: drop-shadow(0 4px 8px rgba(158, 32, 54, 0.25));
+        }
         .map-pill-btn {
             display: inline-block;
-            margin: 10px 0 16px;
-            padding: 10px 30px;
+            margin: 12px 0 18px;
+            padding: 10px 32px;
             border-radius: 40px;
-            background: linear-gradient(135deg, var(--rose-royal), var(--rose-deep));
+            background: linear-gradient(135deg, var(--rose-bright), var(--rose-deep));
             color: #fff;
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 1.2rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
             text-decoration: none;
-            box-shadow: 0 6px 16px rgba(110, 20, 35, 0.25);
+            box-shadow: 0 6px 16px rgba(122, 22, 40, 0.28);
+            transition: transform 0.2s ease;
+        }
+        .map-pill-btn:hover {
+            transform: translateY(-2px);
+        }
+        .clock-svg {
+            width: 74px;
+            height: 74px;
+            margin: 4px auto 6px;
+            stroke: var(--rose-deep);
         }
         .time-row {
             display: flex;
             align-items: baseline;
             justify-content: center;
             gap: 10px;
-            margin: 2px 0 12px;
+            margin: 4px 0;
         }
         .time-row .big-time {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 800;
             color: var(--rose-deep);
             direction: ltr;
         }
 
-        /* Page 5: RSVP */
+        /* Page 5: Children & Privacy Card */
+        .note-card-box {
+            background: rgba(158, 32, 54, 0.04);
+            border: 1.5px solid rgba(212, 175, 55, 0.5);
+            border-radius: 18px;
+            padding: 22px 18px;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        /* Page 6: RSVP */
         .rsvp-box {
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.45);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.5);
             border-radius: 18px;
             padding: 18px 16px;
             margin-top: 8px;
@@ -548,15 +573,18 @@
         .rsvp-field {
             width: 100%;
             background: #fdfbf7;
-            border: 1px solid rgba(110, 20, 35, 0.2);
+            border: 1px solid rgba(122, 22, 40, 0.22);
             border-radius: 12px;
             padding: 12px 14px;
-            font-family: 'Amiri', serif;
-            font-size: 1.1rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
             color: var(--ink);
             text-align: right;
             margin-bottom: 12px;
             outline: none;
+        }
+        .rsvp-field:focus {
+            border-color: var(--rose-royal);
         }
         textarea.rsvp-field {
             min-height: 85px;
@@ -567,27 +595,28 @@
             padding: 12px;
             border: none;
             border-radius: 12px;
-            background: linear-gradient(135deg, var(--rose-royal), var(--rose-deep));
+            background: linear-gradient(135deg, var(--rose-bright), var(--rose-deep));
             color: #fff;
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 1.35rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
             cursor: pointer;
         }
 
-        /* Page 6: Grand Finale Classic Car */
+        /* Page 7: Grand Finale Classic Car */
         .finale-names-en {
             font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
+            font-size: 2.9rem;
             color: var(--rose-deep);
             direction: ltr;
             line-height: 1.1;
         }
         .finale-blessing {
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 2.2rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
             color: var(--gold-dark);
             margin: 6px 0 12px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
         .classic-car-frame {
             width: 100%;
@@ -596,7 +625,7 @@
             border: 2px solid var(--gold-mid);
             background: linear-gradient(180deg, #fff5f6 0%, #f9e8ea 100%);
             padding: 12px;
-            box-shadow: 0 12px 28px rgba(110, 20, 35, 0.15);
+            box-shadow: 0 12px 28px rgba(122, 22, 40, 0.15);
             margin-top: 4px;
         }
 
@@ -610,26 +639,26 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 12px;
             width: 92%;
             max-width: 440px;
-            background: rgba(45, 5, 12, 0.85);
-            border: 1px solid var(--gold-mid);
+            background: rgba(65, 8, 18, 0.9);
+            border: 1.5px solid var(--gold-mid);
             backdrop-filter: blur(8px);
             padding: 8px 16px;
             border-radius: 40px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
         }
 
         .nav-btn {
             background: linear-gradient(135deg, var(--gold-light), var(--gold-mid));
-            color: #3d0812;
+            color: #420913;
             border: none;
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 25px;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Cairo', sans-serif;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
@@ -643,19 +672,19 @@
 
         .nav-dots {
             display: flex;
-            gap: 7px;
+            gap: 6px;
             align-items: center;
         }
         .dot {
-            width: 9px;
-            height: 9px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            background: rgba(246, 226, 156, 0.3);
+            background: rgba(251, 232, 166, 0.35);
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .dot.active {
-            width: 22px;
+            width: 20px;
             border-radius: 10px;
             background: var(--gold-light);
         }
@@ -670,25 +699,22 @@
         </svg>
     </button>
 
-    <!-- Hidden YouTube Player for Pharrell Williams - Happy -->
-    <div style="position:fixed; top:-9999px; left:-9999px; width:1px; height:1px; overflow:hidden;">
-        <div id="yt-player"></div>
-    </div>
+    <!-- Native HTML5 Audio Player for Amr Diab - El Leila -->
+    <audio id="bg-audio" loop preload="auto" playsinline></audio>
 
-    <!-- ==================== SCREEN 1: THE COVER ==================== -->
+    <!-- ==================== SCREEN 1: JOYFUL ROSE BOUQUET COVER ==================== -->
     <section id="screen-cover">
-        <!-- Glowing Golden & Crimson Heart Emblem -->
         <svg class="cover-heart-emblem" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#fff2b2"/>
+                    <stop offset="0%" stop-color="#fff6c4"/>
                     <stop offset="50%" stop-color="#d4af37"/>
-                    <stop offset="100%" stop-color="#8a620a"/>
+                    <stop offset="100%" stop-color="#997415"/>
                 </linearGradient>
                 <radialGradient id="rubyHeart" cx="35%" cy="30%" r="70%">
-                    <stop offset="0%" stop-color="#ff5e79"/>
-                    <stop offset="55%" stop-color="#b81d38"/>
-                    <stop offset="100%" stop-color="#5e0816"/>
+                    <stop offset="0%" stop-color="#ff6b86"/>
+                    <stop offset="55%" stop-color="#c92442"/>
+                    <stop offset="100%" stop-color="#7a1124"/>
                 </radialGradient>
             </defs>
             <path d="M60 100C60 100 12 68 12 34C12 17 26 6 42 6C51 6 57 11 60 17C63 11 69 6 78 6C94 6 108 17 108 34C108 68 60 100 60 100Z" fill="url(#rubyHeart)" stroke="url(#goldGrad)" stroke-width="4"/>
@@ -716,19 +742,18 @@
         </div>
 
         <div class="seal-trigger" onclick="openInvitationDeck()">
-            <!-- Hyper-Detailed Antique Royal Crimson & Gold Heart Wax Seal -->
             <svg class="prestigious-wax-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <radialGradient id="waxOuter" cx="35%" cy="30%" r="70%">
-                        <stop offset="0%" stop-color="#c92a42"/>
-                        <stop offset="45%" stop-color="#8f1526"/>
-                        <stop offset="85%" stop-color="#5c0813"/>
-                        <stop offset="100%" stop-color="#3b030a"/>
+                        <stop offset="0%" stop-color="#d4324c"/>
+                        <stop offset="45%" stop-color="#96182b"/>
+                        <stop offset="85%" stop-color="#610a17"/>
+                        <stop offset="100%" stop-color="#3d040c"/>
                     </radialGradient>
                     <radialGradient id="waxInner" cx="40%" cy="35%" r="65%">
-                        <stop offset="0%" stop-color="#7a0f1e"/>
-                        <stop offset="70%" stop-color="#4f0711"/>
-                        <stop offset="100%" stop-color="#9e2034"/>
+                        <stop offset="0%" stop-color="#821223"/>
+                        <stop offset="70%" stop-color="#540813"/>
+                        <stop offset="100%" stop-color="#a62338"/>
                     </radialGradient>
                     <linearGradient id="royalGold" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#fff3b8"/>
@@ -741,14 +766,10 @@
                     </filter>
                 </defs>
 
-                <!-- Organic Melted Wax Outer Rim -->
                 <path d="M120 12 C148 10, 175 20, 196 38 C218 57, 228 88, 226 118 C224 148, 216 178, 194 198 C172 218, 146 229, 118 227 C89 225, 62 216, 42 195 C21 174, 12 146, 14 116 C16 86, 26 56, 48 36 C69 17, 94 14, 120 12 Z" fill="url(#waxOuter)" stroke="#4a050e" stroke-width="2"/>
-
-                <!-- Raised Inner Wax Bevel Ring -->
                 <circle cx="120" cy="120" r="86" fill="url(#waxInner)" stroke="url(#royalGold)" stroke-width="2.5"/>
                 <circle cx="120" cy="120" r="79" fill="none" stroke="url(#royalGold)" stroke-width="1.2" stroke-dasharray="4 3"/>
 
-                <!-- Royal Crown at Top of Crest -->
                 <g filter="url(#embossShadow)" fill="url(#royalGold)">
                     <path d="M98 62 L104 46 L120 56 L136 46 L142 62 Z"/>
                     <circle cx="104" cy="43" r="2.5"/>
@@ -756,14 +777,9 @@
                     <circle cx="136" cy="43" r="2.5"/>
                 </g>
 
-                <!-- Embossed 3D Center Heart -->
                 <path filter="url(#embossShadow)" d="M120 176 C120 176 64 138 64 96 C64 75 80 62 98 62 C109 62 116 68 120 76 C124 68 131 62 142 62 C160 62 176 75 176 96 C176 138 120 176 120 176 Z" fill="url(#waxOuter)" stroke="url(#royalGold)" stroke-width="3"/>
-
-                <!-- Laurel Filigree Details -->
                 <path d="M55 125 C52 155, 78 184, 112 190" stroke="url(#royalGold)" stroke-width="2" fill="none" stroke-linecap="round"/>
                 <path d="M185 125 C188 155, 162 184, 128 190" stroke="url(#royalGold)" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-                <!-- Engraved Monogram Inside the Heart -->
                 <text x="120" y="122" text-anchor="middle" fill="#f7e39c" font-family="'Great Vibes', cursive" font-size="38" filter="url(#embossShadow)">R &amp; H</text>
             </svg>
 
@@ -771,14 +787,14 @@
         </div>
     </section>
 
-    <!-- ==================== SCREEN 3: PAGED INVITATION DECK ==================== -->
+    <!-- ==================== SCREEN 3: 7-PAGE INVITATION DECK ==================== -->
     <main id="screen-deck">
 
-        <!-- ========== PAGE 1 OF 6: WELCOME & ANIMATED BRIDE & GROOM ========== -->
+        <!-- ========== PAGE 1 OF 7: WELCOME & ANIMATED BRIDE & GROOM ========== -->
         <article class="page-card active" data-page="0">
             <div class="card-roses-top"></div>
             <div class="card-body">
-                <h2 class="calligraphy-title">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</h2>
+                <h2 class="section-title">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</h2>
 
                 <p class="arabic-verse">
                     في محضر الحب، أريدكم حولي؛<br>
@@ -787,54 +803,40 @@
                     في قلبي أثر جميل.
                 </p>
 
-                <!-- Creative Animated Bride & Groom Inside a Big Blooming Heart -->
                 <div class="couple-heart-stage">
                     <svg class="couple-svg" viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="bgHeart" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ffdde2"/>
-                                <stop offset="100%" stop-color="#f5b8c2"/>
+                                <stop offset="0%" stop-color="#ffe3e8"/>
+                                <stop offset="100%" stop-color="#f7bbc5"/>
                             </linearGradient>
                         </defs>
-                        <!-- Big Romantic Heart Backdrop -->
-                        <path d="M100 175 C100 175 18 122 18 64 C18 35 42 15 68 15 C84 15 94 24 100 35 C106 24 116 15 132 15 C158 15 182 35 182 64 C182 122 100 175 100 175 Z" fill="url(#bgHeart)" stroke="#b83248" stroke-width="2.5"/>
-
-                        <!-- Floating Mini Hearts -->
-                        <path class="floating-mini-heart" d="M35 35 C35 35 25 28 25 21 C25 17 28 15 31 15 C33 15 35 17 35 18 C35 17 37 15 39 15 C42 15 45 17 45 21 C45 28 35 35 35 35 Z" fill="#b83248"/>
+                        <path d="M100 175 C100 175 18 122 18 64 C18 35 42 15 68 15 C84 15 94 24 100 35 C106 24 116 15 132 15 C158 15 182 35 182 64 C182 122 100 175 100 175 Z" fill="url(#bgHeart)" stroke="#c93b54" stroke-width="2.5"/>
+                        <path class="floating-mini-heart" d="M35 35 C35 35 25 28 25 21 C25 17 28 15 31 15 C33 15 35 17 35 18 C35 17 37 15 39 15 C42 15 45 17 45 21 C45 28 35 35 35 35 Z" fill="#c93b54"/>
                         <path class="floating-mini-heart" style="animation-delay: 1.2s;" d="M165 32 C165 32 157 26 157 20 C157 17 160 15 162 15 C164 15 165 16 165 18 C165 16 166 15 168 15 C170 15 173 17 173 20 C173 26 165 32 165 32 Z" fill="#d4af37"/>
 
-                        <!-- Animated Bride & Groom Group -->
                         <g class="couple-sway">
-                            <!-- Groom (Left) -->
-                            <!-- Suit Body -->
+                            <!-- Groom -->
                             <path d="M64 92 L92 92 L95 158 L61 158 Z" fill="#231f20"/>
-                            <!-- White Shirt V & Bowtie -->
                             <polygon points="72,92 84,92 78,112" fill="#ffffff"/>
-                            <polygon points="73,93 78,96 73,99" fill="#8f1d30"/>
-                            <polygon points="83,93 78,96 83,99" fill="#8f1d30"/>
-                            <!-- Red Rose Boutonniere -->
-                            <circle cx="86" cy="103" r="3" fill="#b83248"/>
-                            <!-- Groom Head & Hair -->
+                            <polygon points="73,93 78,96 73,99" fill="#9e2036"/>
+                            <polygon points="83,93 78,96 83,99" fill="#9e2036"/>
+                            <circle cx="86" cy="103" r="3" fill="#c93b54"/>
                             <circle cx="78" cy="73" r="14" fill="#f7d3ba"/>
                             <path d="M64 70 C64 56, 92 56, 92 70 C90 63, 68 63, 64 70 Z" fill="#2c221e"/>
-                            <!-- Happy Smile -->
                             <path d="M74 78 Q78 82 82 78" stroke="#5a382e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
 
-                            <!-- Bride (Right) -->
-                            <!-- Flowing Veil -->
-                            <path d="M122 62 Q152 85 156 142 Q140 148 128 135 Z" fill="rgba(255,255,255,0.75)" stroke="#ece6dd" stroke-width="1"/>
-                            <!-- White Wedding Gown -->
+                            <!-- Bride -->
+                            <path d="M122 62 Q152 85 156 142 Q140 148 128 135 Z" fill="rgba(255,255,255,0.78)" stroke="#ece6dd" stroke-width="1"/>
                             <path d="M106 94 L132 94 Q148 130 152 158 L92 158 Q98 130 106 94 Z" fill="#ffffff" stroke="#e6dfd5" stroke-width="1.5"/>
-                            <!-- Gold Tiara & Hair -->
                             <circle cx="118" cy="75" r="13.5" fill="#f9d8c2"/>
                             <path d="M104 74 C104 58, 132 58, 132 74 C128 66, 110 66, 104 74 Z" fill="#3b2820"/>
                             <polygon points="111,61 115,55 118,59 121,55 125,61" fill="#d4af37"/>
-                            <!-- Happy Smile & Blush -->
                             <path d="M114 80 Q118 84 122 80" stroke="#5a382e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                             <circle cx="110" cy="78" r="2.5" fill="#f497a3" opacity="0.6"/>
                             <circle cx="126" cy="78" r="2.5" fill="#f497a3" opacity="0.6"/>
 
-                            <!-- Red Rose Bridal Bouquet Held Together -->
+                            <!-- Bridal Bouquet -->
                             <g transform="translate(92, 106)">
                                 <circle cx="10" cy="10" r="11" fill="#f2e6d8"/>
                                 <circle cx="7" cy="7" r="4.5" fill="#9e192d"/>
@@ -854,40 +856,39 @@
             </div>
         </article>
 
-        <!-- ========== PAGE 2 OF 6: THE BRIDE & MOTHER'S TRIBUTE ========== -->
+        <!-- ========== PAGE 2 OF 7: THE BRIDE & MOTHER'S TRIBUTE ========== -->
         <article class="page-card" data-page="1">
             <div class="card-roses-top"></div>
             <div class="card-body">
                 <div class="diamond-divider"><span>◆</span></div>
 
                 <h3 class="bride-name">رؤى جمعة الرقيق</h3>
-                <p class="arabic-verse" style="font-size: 1.45rem; color: var(--rose-royal); font-weight: bold;">
+                <p class="arabic-verse" style="font-size: 1.25rem; color: var(--rose-royal); font-weight: 700;">
                     ابنة المرحومة نجوى الواعر
                 </p>
 
                 <div class="tribute-frame">
-                    <p class="arabic-verse" style="font-size: 1.4rem; margin-bottom: 0; color: var(--ink);">
+                    <p class="arabic-verse" style="font-size: 1.18rem; margin-bottom: 0; color: var(--ink);">
                         رحم اللّٰه قلبًا تمنّيت أن يكون أول الحاضرين،<br>
                         وجعل دعواتها وأثرها الطيب رفيقًا لي<br>
                         في أجمل أيام عمري.
                     </p>
                 </div>
 
-                <!-- Golden Heart & Dove Memorial Ornament -->
-                <svg width="90" height="75" viewBox="0 0 100 85" fill="none" style="margin-top: 10px;">
+                <svg width="85" height="70" viewBox="0 0 100 85" fill="none" style="margin-top: 8px;">
                     <path d="M50 75 C50 75 15 50 15 27 C15 14 26 6 38 6 C45 6 48 10 50 15 C52 10 55 6 62 6 C74 6 85 14 85 27 C85 50 50 75 50 75 Z" stroke="#d4af37" stroke-width="2" fill="rgba(212,175,55,0.08)"/>
-                    <path d="M34 40 C42 30, 58 30, 66 40 C58 37, 42 37, 34 40 Z" fill="#b83248"/>
+                    <path d="M34 40 C42 30, 58 30, 66 40 C58 37, 42 37, 34 40 Z" fill="#c93b54"/>
                 </svg>
 
                 <div class="diamond-divider"><span>◆</span></div>
             </div>
         </article>
 
-        <!-- ========== PAGE 3 OF 6: GREGORIAN DATE, CALENDAR & COUNTDOWN ========== -->
+        <!-- ========== PAGE 3 OF 7: GREGORIAN DATE, CALENDAR & COUNTDOWN ========== -->
         <article class="page-card" data-page="2">
             <div class="card-roses-top"></div>
             <div class="card-body">
-                <h3 class="calligraphy-title" style="margin-bottom: 2px;">موعد الحفل</h3>
+                <h3 class="section-title" style="margin-bottom: 2px;">موعد الحفل</h3>
 
                 <div class="date-trio">
                     <div class="date-side">السبت</div>
@@ -898,10 +899,9 @@
                     </div>
                 </div>
 
-                <!-- December 2026 Calendar -->
                 <div class="calendar-card">
-                    <div style="font-family:'Aref Ruqaa',serif; font-size:1.45rem; color:var(--rose-deep);">ديسمبر 2026</div>
-                    <div class="cal-grid" style="margin-top:6px;">
+                    <div style="font-weight:800; font-size:1.15rem; color:var(--rose-deep); margin-bottom:4px;">ديسمبر 2026</div>
+                    <div class="cal-grid">
                         <div class="cal-day-header">س</div>
                         <div class="cal-day-header">ح</div>
                         <div class="cal-day-header">ن</div>
@@ -952,7 +952,6 @@
                     </div>
                 </div>
 
-                <!-- Live Countdown -->
                 <div class="countdown-bar">
                     <div class="cd-item">
                         <span class="cd-num" id="cd-days">00</span>
@@ -974,43 +973,84 @@
             </div>
         </article>
 
-        <!-- ========== PAGE 4 OF 6: VENUE, 7:30 PM & ETIQUETTE NOTE ========== -->
+        <!-- ========== PAGE 4 OF 7: VENUE LOCATION & 7:30 PM TIME ========== -->
         <article class="page-card" data-page="3">
             <div class="card-roses-top"></div>
             <div class="card-body">
-                <h3 class="calligraphy-title" style="margin-bottom: 2px;">مكان الحفل</h3>
-                <p style="font-family:'Aref Ruqaa',serif; font-size:1.7rem; color:var(--rose-royal);">قاعة فايف ستارز</p>
+                <h3 class="section-title" style="margin-bottom: 4px;">مكان الحفل</h3>
+                <div class="diamond-divider"><span>◆</span></div>
+
+                <svg class="pin-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+
+                <p style="font-size:1.55rem; font-weight:800; color:var(--rose-royal); margin-bottom: 2px;">قاعة فايف ستارز</p>
+                <p class="arabic-verse" style="margin-bottom: 6px;">يسعدنا استقبالكم</p>
 
                 <a href="https://maps.app.goo.gl/VdpLCPVS866tfDZq9?g_st=ic" target="_blank" rel="noopener" class="map-pill-btn">
                     📍 عرض الموقع على الخريطة
                 </a>
 
+                <div class="diamond-divider"><span>◆</span></div>
+
+                <svg class="clock-svg" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="44" stroke-width="2.5"/>
+                    <circle cx="50" cy="50" r="39" stroke-width="1"/>
+                    <line x1="50" y1="11" x2="50" y2="16" stroke-width="2.5"/>
+                    <line x1="50" y1="84" x2="50" y2="89" stroke-width="2.5"/>
+                    <line x1="11" y1="50" x2="16" y2="50" stroke-width="2.5"/>
+                    <line x1="84" y1="50" x2="89" y2="50" stroke-width="2.5"/>
+                    <line x1="50" y1="50" x2="50" y2="80" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="50" y1="50" x2="34" y2="66" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="3" fill="#7a1628"/>
+                </svg>
+
+                <p style="font-weight:700; font-size:1.15rem; color:var(--rose-deep);">يبدأ الحفل</p>
                 <div class="time-row">
-                    <span style="font-family:'Aref Ruqaa',serif; font-size:1.35rem; color:var(--rose-deep);">يبدأ الحفل الساعة</span>
+                    <span style="font-weight:700; font-size:1.2rem; color:var(--rose-deep);">الساعة</span>
                     <span class="big-time">7:30</span>
-                    <span style="font-family:'Aref Ruqaa',serif; font-size:1.35rem; color:var(--rose-deep);">مساءً</span>
+                    <span style="font-weight:700; font-size:1.2rem; color:var(--rose-deep);">مساءً</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========== PAGE 5 OF 7: DEDICATED CHILDREN & PRIVACY PAGE ========== -->
+        <article class="page-card" data-page="4">
+            <div class="card-roses-top"></div>
+            <div class="card-body">
+                <div class="diamond-divider"><span>◆</span></div>
+                <h3 class="section-title" style="font-size: 1.75rem;">ممنوع اصطحاب الأطفال</h3>
+
+                <div class="note-card-box">
+                    <p class="arabic-verse" style="font-size: 1.18rem; margin-bottom: 0;">
+                        أما أطفالنا الأحباء، فلهم مكانة<br>
+                        لا توصف في قلوبنا،<br>
+                        فجنة الأطفال أحضان بيوتهم الدافئة.
+                    </p>
                 </div>
 
                 <div class="diamond-divider"><span>◆</span></div>
 
-                <h4 class="calligraphy-title" style="font-size: 1.65rem; margin: 4px 0 8px;">ممنوع اصطحاب الأطفال</h4>
-                <p class="arabic-verse" style="font-size: 1.15rem; line-height: 1.75; margin-bottom: 8px;">
-                    أما أطفالنا الأحباء، فلهم مكانة لا توصف في قلوبنا، فجنة الأطفال أحضان بيوتهم الدافئة.
-                </p>
-                <p class="arabic-verse" style="font-size: 1.15rem; line-height: 1.75; margin-bottom: 0;">
-                    بكل محبة، أرجو احترام خصوصية مناسبتي، والامتناع عن التصوير أو مشاركة أي صور أو مقاطع منها، فبعض اللحظات أحب أن تبقى ذكرى خاصة بي.
-                </p>
+                <div class="note-card-box" style="background: rgba(212, 175, 55, 0.07);">
+                    <p class="arabic-verse" style="font-size: 1.15rem; margin-bottom: 0;">
+                        بكل محبة، أرجو احترام خصوصية مناسبتي،<br>
+                        والامتناع عن التصوير أو مشاركة أي صور<br>
+                        أو مقاطع منها، فبعض اللحظات<br>
+                        أحب أن تبقى ذكرى خاصة بي.
+                    </p>
+                </div>
+                <div class="diamond-divider"><span>◆</span></div>
             </div>
         </article>
 
-        <!-- ========== PAGE 5 OF 6: RSVP (تأكيد الحضور) ========== -->
-        <article class="page-card" data-page="4">
+        <!-- ========== PAGE 6 OF 7: RSVP (تأكيد الحضور) ========== -->
+        <article class="page-card" data-page="5">
             <div class="card-roses-top"></div>
             <div class="card-body">
-                <h3 class="calligraphy-title">تأكيد الحضور</h3>
-                <p class="arabic-verse" style="font-size: 1.18rem; margin-bottom: 8px;">
+                <h3 class="section-title">تأكيد الحضور</h3>
+                <p class="arabic-verse" style="font-size: 1.08rem; margin-bottom: 8px;">
                     يسعدنا تأكيد حضوركم ومشاركتنا أجمل لحظات العمر<br>
-                    <small style="color: var(--muted);">(قبل تاريخ 01 / 12 / 2026)</small>
+                    <small style="color: var(--muted); font-weight: 600;">(قبل تاريخ 01 / 12 / 2026)</small>
                 </p>
 
                 <div class="rsvp-box">
@@ -1019,7 +1059,7 @@
                         <textarea class="rsvp-field" placeholder="رسالة للعروسة"></textarea>
                         <button type="submit" class="rsvp-submit-btn">تأكيد الحضور</button>
                     </form>
-                    <div id="rsvpThankYou" style="display:none; padding: 14px 6px; color: var(--rose-deep); font-size: 1.25rem; font-weight: bold;">
+                    <div id="rsvpThankYou" style="display:none; padding: 14px 6px; color: var(--rose-deep); font-size: 1.15rem; font-weight: 700;">
                         شكراً لكم! تم تسجيل تأكيد حضوركم بكل محبة.<br>
                         <button type="button" onclick="changePage(1)" class="map-pill-btn" style="margin-top:14px; border:none; cursor:pointer;">
                             انتقل إلى الصفحة الأخيرة ←
@@ -1029,25 +1069,24 @@
             </div>
         </article>
 
-        <!-- ========== PAGE 6 OF 6: GRAND FINALE - CLASSIC CAR & BLESSING ========== -->
-        <article class="page-card" data-page="5">
+        <!-- ========== PAGE 7 OF 7: GRAND FINALE - CLASSIC CAR & BLESSING ========== -->
+        <article class="page-card" data-page="6">
             <div class="card-roses-top"></div>
             <div class="card-body">
                 <div class="finale-names-en">Roaa &amp; Hosam</div>
-                <div style="font-family:'Aref Ruqaa',serif; font-size:1.75rem; color:var(--rose-royal); margin-top: -4px;">
+                <div style="font-size:1.45rem; font-weight:800; color:var(--rose-royal); margin-top: -2px;">
                     رؤى &amp; حسام
                 </div>
 
                 <div class="finale-blessing">« زواج الدهر يا رب »</div>
 
-                <!-- Back of Classic Convertible Wedding Car with Rose Bouquet & "Don't Disturb, Newly Married" -->
                 <div class="classic-car-frame">
                     <svg viewBox="0 0 420 265" width="100%" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="carBody" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#a81c33"/>
-                                <stop offset="55%" stop-color="#7a1122"/>
-                                <stop offset="100%" stop-color="#4d0813"/>
+                                <stop offset="0%" stop-color="#b8233c"/>
+                                <stop offset="55%" stop-color="#851427"/>
+                                <stop offset="100%" stop-color="#520915"/>
                             </linearGradient>
                             <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#d9d9d9"/>
@@ -1056,61 +1095,46 @@
                             </linearGradient>
                         </defs>
 
-                        <!-- Romantic Sunset Road Background -->
                         <rect x="0" y="0" width="420" height="265" rx="12" fill="#fceced"/>
                         <circle cx="210" cy="110" r="95" fill="#fad4d8" opacity="0.6"/>
                         <ellipse cx="210" cy="232" rx="155" ry="14" fill="rgba(80,10,20,0.18)"/>
 
-                        <!-- Floating Hearts Above the Car -->
-                        <path d="M115 38 C115 38 103 29 103 21 C103 16 107 13 111 13 C113 13 115 15 115 17 C115 15 117 13 119 13 C123 13 127 16 127 21 C127 29 115 38 115 38 Z" fill="#b83248"/>
+                        <path d="M115 38 C115 38 103 29 103 21 C103 16 107 13 111 13 C113 13 115 15 115 17 C115 15 117 13 119 13 C123 13 127 16 127 21 C127 29 115 38 115 38 Z" fill="#c93b54"/>
                         <path d="M305 34 C305 34 295 26 295 19 C295 15 298 13 301 13 C303 13 305 14 305 16 C305 14 307 13 309 13 C312 13 315 15 315 19 C315 26 305 34 305 34 Z" fill="#d4af37"/>
 
-                        <!-- Groom & Bride Silhouettes Viewed from Behind in the Convertible -->
-                        <!-- Groom Head & Tuxedo Shoulder -->
+                        <!-- Groom & Bride Silhouettes -->
                         <circle cx="178" cy="70" r="15" fill="#2c221e"/>
                         <path d="M152 98 C152 84, 204 84, 204 98 Z" fill="#1f1a1c"/>
-                        <!-- Bride Head, Veil & Tiara -->
                         <circle cx="238" cy="72" r="14" fill="#3b2820"/>
                         <polygon points="230,58 234,52 238,56 242,52 246,58" fill="#d4af37"/>
                         <path d="M222 72 Q255 68 278 96 Q248 104 220 94 Z" fill="#ffffff" opacity="0.92"/>
 
-                        <!-- Convertible Windshield Frame & Cream Leather Interior -->
                         <path d="M118 96 L302 96 L316 112 L104 112 Z" fill="#f3e5d0" stroke="#c59b27" stroke-width="2"/>
-
-                        <!-- Classic Car Rear Fenders & Trunk (Rear View) -->
                         <path d="M68 150 C68 114, 102 104, 128 108 L292 108 C318 104, 352 114, 352 150 L358 196 C358 205, 348 210, 335 210 L85 210 C72 210, 62 205, 62 196 Z" fill="url(#carBody)" stroke="#42050f" stroke-width="2"/>
-
-                        <!-- Classic Trunk Curve Lines -->
                         <path d="M118 112 L108 188 L312 188 L302 112 Z" fill="#8f172b" stroke="#d4af37" stroke-width="1.2"/>
 
-                        <!-- Vintage Round Chrome Taillights -->
                         <circle cx="86" cy="152" r="11" fill="#ff2a4b" stroke="url(#chrome)" stroke-width="4"/>
                         <circle cx="334" cy="152" r="11" fill="#ff2a4b" stroke="url(#chrome)" stroke-width="4"/>
 
-                        <!-- Whitewall Tires -->
                         <rect x="74" y="198" width="42" height="34" rx="8" fill="#222"/>
                         <rect x="80" y="204" width="30" height="22" rx="4" fill="#eee"/>
                         <rect x="304" y="198" width="42" height="34" rx="8" fill="#222"/>
                         <rect x="310" y="204" width="30" height="22" rx="4" fill="#eee"/>
 
-                        <!-- Shiny Chrome Rear Bumper -->
                         <rect x="54" y="186" width="312" height="16" rx="8" fill="url(#chrome)" stroke="#888" stroke-width="1.5"/>
 
-                        <!-- Trailing Tin Cans & Heart Ribbons Under Bumper -->
                         <line x1="145" y1="202" x2="135" y2="236" stroke="#d4af37" stroke-width="2"/>
                         <rect x="128" y="234" width="12" height="16" rx="2" fill="url(#chrome)" stroke="#777"/>
-                        <line x1="210" y1="202" x2="210" y2="240" stroke="#b83248" stroke-width="2"/>
+                        <line x1="210" y1="202" x2="210" y2="240" stroke="#c93b54" stroke-width="2"/>
                         <rect x="204" y="238" width="12" height="16" rx="2" fill="url(#chrome)" stroke="#777"/>
                         <line x1="275" y1="202" x2="285" y2="236" stroke="#d4af37" stroke-width="2"/>
                         <rect x="278" y="234" width="12" height="16" rx="2" fill="url(#chrome)" stroke="#777"/>
 
-                        <!-- Lush Bouquet of Red & Pink Roses on the Back Trunk -->
+                        <!-- Bouquet of Roses on Trunk -->
                         <g>
-                            <!-- Greenery & Leaves -->
                             <ellipse cx="210" cy="116" rx="76" ry="18" fill="#2e5a36"/>
                             <path d="M130 118 Q105 132 95 145" stroke="#2e5a36" stroke-width="4" fill="none" stroke-linecap="round"/>
                             <path d="M290 118 Q315 132 325 145" stroke="#2e5a36" stroke-width="4" fill="none" stroke-linecap="round"/>
-                            <!-- Roses Cluster -->
                             <circle cx="155" cy="114" r="12" fill="#b81d38"/>
                             <circle cx="175" cy="110" r="13" fill="#ff758f"/>
                             <circle cx="196" cy="113" r="14" fill="#d62842"/>
@@ -1120,24 +1144,23 @@
                             <circle cx="186" cy="122" r="11" fill="#f497a3"/>
                             <circle cx="210" cy="123" r="12" fill="#b81d38"/>
                             <circle cx="232" cy="122" r="11" fill="#d62842"/>
-                            <!-- Flowing White Satin Ribbons -->
                             <path d="M195 126 Q175 155 155 172" stroke="#fff9f0" stroke-width="4" fill="none" stroke-linecap="round"/>
                             <path d="M225 126 Q245 155 265 172" stroke="#fff9f0" stroke-width="4" fill="none" stroke-linecap="round"/>
                         </g>
 
-                        <!-- Prominent Vintage Sign Plate: "DON'T DISTURB • NEWLY MARRIED" -->
+                        <!-- Sign: DON'T DISTURB • Newly Married -->
                         <g transform="translate(95, 134)">
                             <rect x="0" y="0" width="230" height="58" rx="10" fill="#fffdf7" stroke="#d4af37" stroke-width="3.5" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.35))"/>
                             <rect x="5" y="5" width="220" height="48" rx="7" fill="none" stroke="#8f1d30" stroke-width="1" stroke-dasharray="4 2"/>
-                            <text x="115" y="25" text-anchor="middle" fill="#8f1d30" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="16" letter-spacing="1.5">DON'T DISTURB</text>
-                            <text x="115" y="45" text-anchor="middle" fill="#3d2b2e" font-family="'Great Vibes', cursive" font-size="24">Newly Married ♥</text>
+                            <text x="115" y="25" text-anchor="middle" fill="#8f1d30" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" letter-spacing="1.5">DON'T DISTURB</text>
+                            <text x="115" y="46" text-anchor="middle" fill="#3d2b2e" font-family="'Great Vibes', cursive" font-size="24">Newly Married ♥</text>
                         </g>
                     </svg>
                 </div>
             </div>
         </article>
 
-        <!-- Bottom Navigation Bar for Flipping Pages -->
+        <!-- Bottom Navigation Bar for Flipping 7 Pages -->
         <nav class="deck-nav" dir="rtl">
             <button class="nav-btn" id="prevBtn" onclick="changePage(-1)" disabled>→ السابق</button>
             <div class="nav-dots" id="navDots">
@@ -1147,58 +1170,75 @@
                 <span class="dot" onclick="goToPage(3)"></span>
                 <span class="dot" onclick="goToPage(4)"></span>
                 <span class="dot" onclick="goToPage(5)"></span>
+                <span class="dot" onclick="goToPage(6)"></span>
             </div>
             <button class="nav-btn" id="nextBtn" onclick="changePage(1)">التالي ←</button>
         </nav>
     </main>
 
-    <!-- YouTube IFrame API for Pharrell Williams - Happy -->
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        var ytPlayer;
+        var bgAudio = document.getElementById('bg-audio');
         var isPlaying = false;
+        var wantToPlay = false;
         var currentPage = 0;
-        var totalPages = 6;
+        var totalPages = 7;
 
-        function onYouTubeIframeAPIReady() {
-            ytPlayer = new YT.Player('yt-player', {
-                height: '1',
-                width: '1',
-                videoId: 'ZbZSe6N_BXs', // Pharrell Williams - Happy
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'loop': 1,
-                    'playlist': 'ZbZSe6N_BXs',
-                    'playsinline': 1
-                }
-            });
+        // Fetch Amr Diab - "El Leila" (الليلة) official audio stream via Apple/iTunes API
+        async function loadAmrDiabElLeila() {
+            var queries = [
+                'https://itunes.apple.com/search?term=' + encodeURIComponent('عمرو دياب الليلة') + '&media=music&entity=song&limit=10',
+                'https://itunes.apple.com/search?term=' + encodeURIComponent('Amr Diab El Leila') + '&media=music&entity=song&limit=10'
+            ];
+
+            for (var i = 0; i < queries.length; i++) {
+                try {
+                    var res = await fetch(queries[i]);
+                    var data = await res.json();
+                    if (data.results && data.results.length > 0) {
+                        var match = data.results.find(function(item) {
+                            var t = (item.trackName || '').toLowerCase();
+                            return t.includes('leila') || t.includes('الليلة') || t.includes('الليله');
+                        }) || data.results[0];
+
+                        if (match && match.previewUrl) {
+                            bgAudio.src = match.previewUrl;
+                            bgAudio.load();
+                            if (wantToPlay) {
+                                bgAudio.play().then(function() {
+                                    isPlaying = true;
+                                }).catch(function(){});
+                            }
+                            return;
+                        }
+                    }
+                } catch (e) {}
+            }
         }
+        loadAmrDiabElLeila();
 
         function startMusic() {
-            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
-                ytPlayer.unMute();
-                ytPlayer.setVolume(100);
-                ytPlayer.playVideo();
-                isPlaying = true;
-            }
+            wantToPlay = true;
             document.getElementById('audio-toggle').style.display = 'flex';
+            if (bgAudio.src) {
+                bgAudio.play().then(function() {
+                    isPlaying = true;
+                    document.getElementById('audio-toggle').style.opacity = '1';
+                }).catch(function(){});
+            }
         }
 
         function toggleAudio() {
-            if (!ytPlayer) return;
-            if (isPlaying) {
-                ytPlayer.pauseVideo();
-                isPlaying = false;
-                document.getElementById('audio-toggle').style.opacity = '0.45';
-            } else {
-                ytPlayer.playVideo();
+            if (bgAudio.paused) {
+                bgAudio.play();
                 isPlaying = true;
                 document.getElementById('audio-toggle').style.opacity = '1';
+            } else {
+                bgAudio.pause();
+                isPlaying = false;
+                document.getElementById('audio-toggle').style.opacity = '0.45';
             }
         }
 
-        // Screen 1 -> Screen 2 (Heart Wax Seal)
         function goToSealScreen() {
             startMusic();
             var cover = document.getElementById('screen-cover');
@@ -1209,7 +1249,6 @@
             seal.style.opacity = '1';
         }
 
-        // Screen 2 -> Screen 3 (Multi-Page Deck)
         function openInvitationDeck() {
             startMusic();
             var seal = document.getElementById('screen-seal');
@@ -1219,7 +1258,6 @@
             deck.style.display = 'flex';
         }
 
-        // Flip between the 6 Invitation Pages
         function goToPage(index) {
             if (index < 0 || index >= totalPages) return;
             currentPage = index;
@@ -1242,7 +1280,7 @@
             goToPage(currentPage + step);
         }
 
-        // Touch Swipe Support for Mobile Page Flipping
+        // Mobile Touch Swipe Support
         var touchStartX = 0;
         document.addEventListener('touchstart', function(e) {
             touchStartX = e.changedTouches[0].screenX;
@@ -1253,7 +1291,6 @@
             if (deck.style.display !== 'flex') return;
             var diffX = e.changedTouches[0].screenX - touchStartX;
             if (Math.abs(diffX) > 60) {
-                // In RTL layout: swipe right goes next, swipe left goes back
                 if (diffX > 0) changePage(1);
                 else changePage(-1);
             }
@@ -1279,7 +1316,6 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Handle RSVP Submit & Prompt for Final Classic Car Page
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             this.style.display = 'none';
