@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Wedding of Roaa & Hosam</title>
+    <title>The Royal Wedding of Roaa & Hosam</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
-            --offwhite-bg: #f7f3eb;
-            --ivory-card: #fffdf9;
-            --pearl-border: #e8dec8;
-            --gold-light: #f3dc8a;
-            --gold-mid: #c59b27;
-            --gold-deep: #967112;
-            --gold-text: #8c6710;
-            --ink: #4a3e2e;
-            --muted: #847560;
+            --palace-ivory: #fffef9;
+            --parchment-bg: #f4efe4;
+            --gold-bright: #f7e5a9;
+            --gold-metallic: #c59b27;
+            --gold-antique: #997312;
+            --gold-deep: #6e5008;
+            --ink-royal: #2c241b;
+            --ink-muted: #756652;
         }
 
         * {
@@ -26,17 +25,26 @@
             padding: 0;
         }
 
-        html,  {
+        html, body {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: var(--offwhite-bg);
-            color: var(--ink);
+            background-color: var(--parchment-bg);
+            color: var(--ink-royal);
             font-family: 'Amiri', serif;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Floating Mute/Unmute Speaker Button */
+        /* Metallic Gold Shimmer Text Utility */
+        .gold-foil-text {
+            background: linear-gradient(135deg, #7d5c09 0%, #c59b27 28%, #ebd182 50%, #c59b27 72%, #7d5c09 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--gold-antique);
+        }
+
+        /* Floating Audio Button */
         #audio-toggle {
             position: fixed;
             top: 18px;
@@ -45,14 +53,14 @@
             width: 46px;
             height: 46px;
             border-radius: 50%;
-            background: rgba(255, 253, 249, 0.92);
-            border: 1.5px solid var(--gold-mid);
+            background: rgba(255, 254, 249, 0.95);
+            border: 1.5px solid var(--gold-metallic);
             color: var(--gold-deep);
             display: none;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 16px rgba(150, 113, 18, 0.22);
+            box-shadow: 0 6px 20px rgba(110, 80, 8, 0.22);
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
         #audio-toggle:hover {
@@ -64,7 +72,7 @@
             fill: currentColor;
         }
 
-        /* ==================== SCREEN 1: OFF-WHITE & GOLD ANIMATED GEESE COVER ==================== */
+        /* ==================== SCREEN 1: SOVEREIGN ROYAL PALACE COVER ==================== */
         #screen-cover {
             position: fixed;
             inset: 0;
@@ -73,115 +81,125 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 24px;
+            padding: 20px;
             background: 
-                radial-gradient(circle at 50% 30%, rgba(255, 253, 248, 0.88) 0%, rgba(244, 236, 220, 0.94) 65%, rgba(232, 219, 193, 0.98) 100%),
-                url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=85') center/cover no-repeat;
-            color: var(--ink);
+                radial-gradient(circle at 50% 35%, rgba(255, 254, 250, 0.96) 0%, rgba(245, 238, 222, 0.97) 65%, rgba(230, 218, 192, 0.99) 100%);
+            color: var(--ink-royal);
             text-align: center;
-            transition: opacity 0.85s ease, visibility 0.85s ease;
+            transition: opacity 0.95s ease, visibility 0.95s ease;
         }
 
-        .cover-geese-stage {
-            width: 190px;
-            height: 145px;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 6px 16px rgba(150, 113, 18, 0.2));
+        /* Royal Damask Background Pattern */
+        #screen-cover::before {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 2px solid var(--gold-metallic);
+            outline: 1px solid rgba(197, 155, 39, 0.45);
+            outline-offset: -7px;
+            pointer-events: none;
         }
 
-        /* Gentle Swimming Animation for the Two Geese */
-        .goose-left {
-            animation: swimLeft 3.6s ease-in-out infinite alternate;
-        }
-        .goose-right {
-            animation: swimRight 3.6s ease-in-out infinite alternate;
-        }
-        @keyframes swimLeft {
-            0% { transform: translateX(-4px) translateY(0) rotate(-1deg); }
-            100% { transform: translateX(3px) translateY(-3px) rotate(1deg); }
-        }
-        @keyframes swimRight {
-            0% { transform: translateX(4px) translateY(0) rotate(1deg); }
-            100% { transform: translateX(-3px) translateY(-3px) rotate(-1deg); }
+        .royal-coat-of-arms {
+            width: 195px;
+            height: 170px;
+            margin-bottom: 6px;
+            filter: drop-shadow(0 8px 18px rgba(110, 80, 8, 0.2));
         }
 
-        .floating-heart-gold {
-            animation: floatPulse 2.6s ease-in-out infinite;
-            transform-origin: center;
+        /* Subtle Royal Swan Movement */
+        .swan-supporter-left {
+            animation: regalFloatLeft 4s ease-in-out infinite alternate;
         }
-        @keyframes floatPulse {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
-            50% { transform: translateY(-6px) scale(1.12); opacity: 1; }
+        .swan-supporter-right {
+            animation: regalFloatRight 4s ease-in-out infinite alternate;
+        }
+        @keyframes regalFloatLeft {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-2.5px) rotate(-1deg); }
+        }
+        @keyframes regalFloatRight {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-2.5px) rotate(1deg); }
         }
 
         .cover-frame {
             width: 100%;
-            max-width: 430px;
-            border: 1.5px solid var(--gold-mid);
-            border-radius: 26px;
-            padding: 34px 24px;
-            background: rgba(255, 253, 249, 0.86);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 20px 50px rgba(150, 113, 18, 0.14), inset 0 0 0 5px rgba(197, 155, 39, 0.12);
+            max-width: 440px;
+            background: var(--palace-ivory);
+            border: 2px solid var(--gold-metallic);
+            padding: 32px 26px;
+            position: relative;
+            box-shadow: 
+                0 22px 55px rgba(110, 80, 8, 0.16),
+                inset 0 0 0 6px var(--palace-ivory),
+                inset 0 0 0 7.5px rgba(197, 155, 39, 0.55);
             direction: ltr;
+        }
+
+        .cover-decree-tag {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 0.72rem;
+            letter-spacing: 4px;
+            color: var(--gold-antique);
+            margin-bottom: 6px;
         }
 
         .cover-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--gold-deep);
+            color: var(--ink-muted);
             margin-bottom: 6px;
         }
 
         .cover-names {
             font-family: 'Great Vibes', cursive;
-            font-size: 4.1rem;
+            font-size: 4.15rem;
             font-weight: 400;
-            color: var(--gold-deep);
-            line-height: 1.1;
-            margin: 6px 0 16px;
-            text-shadow: 0 2px 10px rgba(197, 155, 39, 0.22);
+            line-height: 1.12;
+            margin: 4px 0 14px;
         }
 
         .cover-divider {
-            width: 75%;
+            width: 80%;
             height: 1.5px;
             margin: 0 auto 16px;
-            background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+            background: linear-gradient(90deg, transparent, var(--gold-metallic), transparent);
+            position: relative;
         }
 
         .cover-quote {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.25rem;
-            line-height: 1.6;
-            color: var(--ink);
+            font-size: 1.24rem;
+            line-height: 1.62;
+            color: var(--ink-royal);
         }
 
         .continue-btn {
-            margin-top: 28px;
-            padding: 10px 42px;
-            background: linear-gradient(135deg, #e5c158, var(--gold-deep));
-            border: 1.5px solid #fffdf9;
-            border-radius: 40px;
+            margin-top: 26px;
+            padding: 11px 44px;
+            background: linear-gradient(135deg, #d8b344 0%, #997312 50%, #735407 100%);
+            border: 1.5px solid var(--gold-bright);
+            border-radius: 4px;
             color: #fff;
             font-family: 'Amiri', serif;
             font-weight: 700;
             font-size: 1.35rem;
+            letter-spacing: 0.5px;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(150, 113, 18, 0.32);
-            animation: pulseBtn 2.2s infinite ease-in-out;
+            box-shadow: 0 8px 25px rgba(110, 80, 8, 0.3), inset 0 0 0 1px rgba(255,255,255,0.3);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(110, 80, 8, 0.42);
         }
 
-        @keyframes pulseBtn {
-            0%, 100% { transform: translateY(0); box-shadow: 0 6px 20px rgba(150, 113, 18, 0.25); }
-            50% { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(150, 113, 18, 0.45); }
-        }
-
-        /* ==================== SCREEN 2: OFF-WHITE ENVELOPE & PEARL/GOLD WAX SEAL ==================== */
+        /* ==================== SCREEN 2: ROYAL ENVELOPE & IMPERIAL WAX SEAL ==================== */
         #screen-seal {
             position: fixed;
             inset: 0;
@@ -190,12 +208,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #fdfbf6 0%, #ebe3d2 100%);
-            color: var(--ink);
+            background: radial-gradient(circle at center, #fdfbf5 0%, #e7decb 100%);
+            color: var(--ink-royal);
             text-align: center;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.85s ease, visibility 0.85s ease;
+            transition: opacity 0.9s ease, visibility 0.9s ease;
             overflow: hidden;
         }
 
@@ -206,22 +224,30 @@
             transform: translateX(-50%);
             width: 140vw;
             max-width: 680px;
-            height: 58vh;
-            background: linear-gradient(180deg, #faf6ed 0%, #ede4d1 100%);
+            height: 57vh;
+            background: linear-gradient(180deg, #fffdf8 0%, #eee5d3 100%);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
-            box-shadow: 0 16px 40px rgba(120, 95, 40, 0.22);
+            box-shadow: 0 18px 45px rgba(100, 75, 20, 0.25);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 11vh;
+            padding-top: 9vh;
+            border-bottom: 3px solid var(--gold-metallic);
+        }
+
+        .envelope-crown-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            color: var(--gold-antique);
+            margin-bottom: 4px;
+            direction: ltr;
         }
 
         .envelope-names {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.7rem;
-            color: var(--gold-deep);
+            font-size: 3.6rem;
             direction: ltr;
-            text-shadow: 0 2px 8px rgba(197, 155, 39, 0.2);
             z-index: 2;
         }
 
@@ -236,29 +262,29 @@
             transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .seal-trigger:hover {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .prestigious-wax-svg {
             width: 225px;
             height: 225px;
-            filter: drop-shadow(0 16px 26px rgba(110, 85, 30, 0.35));
+            filter: drop-shadow(0 18px 28px rgba(90, 68, 15, 0.38));
         }
 
         .open-envelope-pill {
             margin-top: 14px;
-            padding: 8px 34px;
-            border-radius: 40px;
-            background: rgba(255, 253, 249, 0.92);
-            border: 1.5px solid var(--gold-mid);
+            padding: 9px 36px;
+            border-radius: 4px;
+            background: var(--palace-ivory);
+            border: 1.5px solid var(--gold-metallic);
+            box-shadow: 0 6px 20px rgba(110, 80, 8, 0.18), inset 0 0 0 3px rgba(197, 155, 39, 0.15);
             color: var(--gold-deep);
             font-family: 'Amiri', serif;
             font-weight: 700;
             font-size: 1.3rem;
-            box-shadow: 0 6px 20px rgba(150, 113, 18, 0.18);
         }
 
-        /* ==================== SCREEN 3: VERTICAL SCROLL-SNAP INVITATION DECK ==================== */
+        /* ==================== SCREEN 3: VERTICAL SCROLL-SNAP ROYAL STATIONERY DECK ==================== */
         #screen-deck {
             position: fixed;
             inset: 0;
@@ -269,10 +295,9 @@
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            background: radial-gradient(circle at center, #f9f5ec 0%, #e8dec9 100%);
+            background: radial-gradient(circle at center, #f8f4ea 0%, #e4dac5 100%);
         }
 
-        /* Each Page Snap Section */
         .snap-section {
             width: 100%;
             min-height: 100vh;
@@ -281,72 +306,86 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 14px;
+            padding: 16px 14px;
             position: relative;
         }
 
+        /* Archival Palace Stationery Card */
         .page-card {
             width: 100%;
             max-width: 470px;
-            min-height: 86vh;
-            background-color: var(--ivory-card);
+            min-height: 87vh;
+            background-color: var(--palace-ivory);
             background-image: 
-                radial-gradient(rgba(197, 155, 39, 0.05) 1px, transparent 0),
-                radial-gradient(rgba(197, 155, 39, 0.03) 1px, var(--ivory-card) 0);
+                radial-gradient(rgba(197, 155, 39, 0.04) 1px, transparent 0),
+                radial-gradient(rgba(197, 155, 39, 0.025) 1px, var(--palace-ivory) 0);
             background-size: 24px 24px;
             background-position: 0 0, 12px 12px;
-            border-radius: 28px;
-            border: 2px solid var(--gold-mid);
-            box-shadow: 0 18px 50px rgba(130, 100, 35, 0.16), inset 0 0 0 6px rgba(197, 155, 39, 0.12);
+            border: 2px solid var(--gold-metallic);
+            box-shadow: 
+                0 20px 55px rgba(100, 75, 18, 0.18),
+                inset 0 0 0 7px var(--palace-ivory),
+                inset 0 0 0 8.5px rgba(197, 155, 39, 0.55);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            padding: 22px 22px 34px;
         }
 
-        /* White & Ivory Roses Header Banner on Every Card */
-        .card-roses-top {
-            width: 100%;
-            height: 125px;
+        /* Baroque Gold Filigree Corner Ornaments on Every Card */
+        .corner-ornament {
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            pointer-events: none;
+            z-index: 3;
+            opacity: 0.88;
+        }
+        .corner-tl { top: 11px; left: 11px; }
+        .corner-tr { top: 11px; right: 11px; transform: scaleX(-1); }
+        .corner-bl { bottom: 11px; left: 11px; transform: scaleY(-1); }
+        .corner-br { bottom: 11px; right: 11px; transform: scale(-1, -1); }
+
+        /* Small Royal Crown Header Emblem at Top of Every Card */
+        .card-royal-crest {
+            width: 82px;
+            height: 46px;
+            margin-top: 2px;
+            margin-bottom: 4px;
             flex-shrink: 0;
-            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
-            filter: saturate(0.75) brightness(1.06);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 48%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 48%, rgba(0,0,0,0) 100%);
         }
 
         .card-body {
             width: 100%;
-            padding: 0 24px 36px;
-            margin-top: -10px;
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            z-index: 2;
         }
 
-        .diamond-divider {
+        .royal-divider {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin: 12px auto;
-            width: 72%;
-            max-width: 230px;
+            margin: 10px auto;
+            width: 76%;
+            max-width: 250px;
         }
-        .diamond-divider::before,
-        .diamond-divider::after {
+        .royal-divider::before,
+        .royal-divider::after {
             content: "";
             flex: 1;
             height: 1px;
-            background: var(--gold-mid);
-            opacity: 0.55;
+            background: linear-gradient(90deg, transparent, var(--gold-metallic), transparent);
         }
-        .diamond-divider span {
-            color: var(--gold-deep);
+        .royal-divider span {
+            color: var(--gold-antique);
             font-size: 0.85rem;
         }
 
@@ -354,41 +393,41 @@
             font-family: 'Amiri', serif;
             font-size: 2.15rem;
             font-weight: 700;
-            color: var(--gold-text);
-            margin: 4px 0 10px;
+            color: var(--gold-deep);
+            margin: 4px 0 8px;
         }
 
         .arabic-verse {
             font-family: 'Amiri', serif;
             font-size: 1.32rem;
-            line-height: 1.95;
-            color: var(--ink);
-            margin-bottom: 12px;
+            line-height: 1.98;
+            color: var(--ink-royal);
+            margin-bottom: 10px;
         }
 
-        /* Animated Two White Geese/Swans Stage Inside Invitation */
-        .geese-pond-stage {
-            width: 230px;
-            height: 165px;
-            margin: 4px auto 10px;
+        /* Royal Porcelain Cameo Frame for the Two Crowned Swans */
+        .royal-cameo-stage {
+            width: 225px;
+            height: 160px;
+            margin: 6px auto 10px;
             position: relative;
         }
 
         /* Page 2: Bride & Mother Tribute */
         .bride-name {
             font-family: 'Amiri', serif;
-            font-size: 2.45rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--gold-text);
+            color: var(--gold-deep);
             margin: 6px 0;
         }
         .tribute-frame {
-            background: rgba(197, 155, 39, 0.06);
-            border-top: 1.5px solid rgba(197, 155, 39, 0.55);
-            border-bottom: 1.5px solid rgba(197, 155, 39, 0.55);
-            padding: 20px 18px;
+            background: linear-gradient(180deg, rgba(197, 155, 39, 0.05) 0%, rgba(197, 155, 39, 0.1) 100%);
+            border-top: 1.5px solid var(--gold-metallic);
+            border-bottom: 1.5px solid var(--gold-metallic);
+            padding: 22px 18px;
             margin: 14px 0;
-            border-radius: 14px;
+            position: relative;
         }
 
         /* Page 3: Date, Calendar & Countdown */
@@ -403,7 +442,7 @@
             font-family: 'Amiri', serif;
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--gold-text);
+            color: var(--gold-deep);
             min-width: 75px;
         }
         .date-side span {
@@ -414,20 +453,20 @@
         }
         .date-center-num {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4.2rem;
+            font-size: 4.3rem;
             font-weight: 700;
-            color: var(--gold-text);
+            color: var(--gold-deep);
             line-height: 0.9;
-            padding: 0 18px;
-            border-right: 1.5px solid rgba(197, 155, 39, 0.4);
-            border-left: 1.5px solid rgba(197, 155, 39, 0.4);
+            padding: 0 20px;
+            border-right: 1.5px solid rgba(197, 155, 39, 0.5);
+            border-left: 1.5px solid rgba(197, 155, 39, 0.5);
         }
 
         .calendar-card {
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(197, 155, 39, 0.45);
-            border-radius: 18px;
+            background: #ffffff;
+            border: 1.5px solid rgba(197, 155, 39, 0.55);
+            box-shadow: inset 0 0 0 3px rgba(197, 155, 39, 0.12);
             padding: 12px;
             margin-bottom: 12px;
         }
@@ -442,14 +481,14 @@
             font-family: 'Amiri', serif;
             font-size: 1rem;
             font-weight: 700;
-            color: var(--muted);
+            color: var(--ink-muted);
             padding-bottom: 4px;
         }
         .cal-day {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.15rem;
             font-weight: 700;
-            color: var(--ink);
+            color: var(--ink-royal);
             height: 28px;
             display: flex;
             align-items: center;
@@ -467,16 +506,15 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #dfba48, var(--gold-deep));
-            box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.25);
+            background: linear-gradient(135deg, #d8b344, var(--gold-deep));
+            box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.28);
             z-index: -1;
         }
 
         .countdown-bar {
             width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(197, 155, 39, 0.45);
-            border-radius: 16px;
+            background: #ffffff;
+            border: 1.5px solid rgba(197, 155, 39, 0.55);
             padding: 10px 6px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -484,75 +522,76 @@
         }
         .cd-item {
             text-align: center;
-            border-right: 1px solid rgba(197, 155, 39, 0.25);
+            border-right: 1px solid rgba(197, 155, 39, 0.3);
         }
         .cd-item:last-child { border-right: none; }
         .cd-num {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.85rem;
             font-weight: 700;
-            color: var(--gold-text);
+            color: var(--gold-deep);
             line-height: 1;
             display: block;
         }
         .cd-label {
             font-family: 'Amiri', serif;
             font-size: 0.95rem;
-            color: var(--muted);
+            color: var(--ink-muted);
         }
 
         /* Page 4: Glamorous Timepiece First, Location Second */
         .glam-clock-svg {
-            width: 112px;
-            height: 122px;
-            margin: 2px auto 6px;
-            filter: drop-shadow(0 6px 14px rgba(150, 113, 18, 0.22));
+            width: 110px;
+            height: 120px;
+            margin: 2px auto 4px;
+            filter: drop-shadow(0 6px 14px rgba(110, 80, 8, 0.2));
         }
         .time-row {
             display: flex;
             align-items: baseline;
             justify-content: center;
             gap: 10px;
-            margin: 2px 0 8px;
+            margin: 2px 0 6px;
         }
         .time-row .big-time {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.85rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: var(--gold-text);
+            color: var(--gold-deep);
             direction: ltr;
         }
         .pin-icon {
-            width: 48px;
-            height: 48px;
-            fill: var(--gold-mid);
-            margin: 2px auto 6px;
-            filter: drop-shadow(0 4px 8px rgba(150, 113, 18, 0.22));
+            width: 44px;
+            height: 44px;
+            fill: var(--gold-metallic);
+            margin: 2px auto 4px;
+            filter: drop-shadow(0 4px 8px rgba(110, 80, 8, 0.2));
         }
         .map-pill-btn {
             display: inline-block;
-            margin: 8px 0 4px;
-            padding: 10px 34px;
-            border-radius: 40px;
-            background: linear-gradient(135deg, #dfba48, var(--gold-deep));
+            margin: 8px 0 2px;
+            padding: 9px 34px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #d8b344, var(--gold-deep));
+            border: 1px solid var(--gold-bright);
             color: #fff;
             font-family: 'Amiri', serif;
             font-weight: 700;
             font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 6px 16px rgba(150, 113, 18, 0.28);
+            box-shadow: 0 6px 16px rgba(110, 80, 8, 0.26);
             transition: transform 0.2s ease;
         }
         .map-pill-btn:hover {
             transform: translateY(-2px);
         }
 
-        /* Page 5: Dedicated Children & Privacy Page */
+        /* Page 5: Dedicated Etiquette & Privacy Decree */
         .note-card-box {
-            background: rgba(197, 155, 39, 0.06);
-            border: 1.5px solid rgba(197, 155, 39, 0.45);
-            border-radius: 18px;
-            padding: 20px 18px;
+            background: rgba(197, 155, 39, 0.05);
+            border: 1.5px solid rgba(197, 155, 39, 0.5);
+            box-shadow: inset 0 0 0 3px rgba(197, 155, 39, 0.1);
+            padding: 18px 16px;
             margin: 8px 0;
             width: 100%;
         }
@@ -560,21 +599,20 @@
         /* Page 6: RSVP */
         .rsvp-box {
             width: 100%;
-            background: rgba(255, 255, 255, 0.94);
-            border: 1.5px solid rgba(197, 155, 39, 0.5);
-            border-radius: 18px;
+            background: #ffffff;
+            border: 1.5px solid rgba(197, 155, 39, 0.55);
+            box-shadow: inset 0 0 0 3px rgba(197, 155, 39, 0.1);
             padding: 18px 16px;
             margin-top: 6px;
         }
         .rsvp-field {
             width: 100%;
-            background: #fdfbf7;
-            border: 1px solid rgba(197, 155, 39, 0.4);
-            border-radius: 12px;
+            background: var(--palace-ivory);
+            border: 1px solid rgba(197, 155, 39, 0.45);
             padding: 12px 14px;
             font-family: 'Amiri', serif;
             font-size: 1.15rem;
-            color: var(--ink);
+            color: var(--ink-royal);
             text-align: right;
             margin-bottom: 12px;
             outline: none;
@@ -583,73 +621,100 @@
             border-color: var(--gold-deep);
         }
         textarea.rsvp-field {
-            min-height: 85px;
+            min-height: 82px;
             resize: none;
         }
         .rsvp-submit-btn {
             width: 100%;
             padding: 12px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #dfba48, var(--gold-deep));
+            border: 1px solid var(--gold-bright);
+            background: linear-gradient(135deg, #d8b344, var(--gold-deep));
             color: #fff;
             font-family: 'Amiri', serif;
             font-weight: 700;
             font-size: 1.3rem;
             cursor: pointer;
-            box-shadow: 0 6px 16px rgba(150, 113, 18, 0.25);
+            box-shadow: 0 6px 16px rgba(110, 80, 8, 0.25);
         }
 
-        /* Page 7: Grand Finale Classic Car */
+        /* Page 7: Grand Finale Classic Royal Convertible */
         .finale-names-en {
             font-family: 'Great Vibes', cursive;
             font-size: 3rem;
-            color: var(--gold-text);
             direction: ltr;
             line-height: 1.1;
         }
         .finale-blessing {
             font-family: 'Amiri', serif;
-            font-size: 2rem;
+            font-size: 1.95rem;
             font-weight: 700;
             color: var(--gold-deep);
-            margin: 4px 0 10px;
+            margin: 4px 0 8px;
         }
         .classic-car-frame {
             width: 100%;
-            max-width: 390px;
-            border-radius: 18px;
-            border: 2px solid var(--gold-mid);
+            max-width: 385px;
+            border: 2px solid var(--gold-metallic);
             background: linear-gradient(180deg, #fffdf9 0%, #f5efe1 100%);
-            padding: 12px;
-            box-shadow: 0 12px 28px rgba(150, 113, 18, 0.16);
+            padding: 10px;
+            box-shadow: 0 12px 28px rgba(110, 80, 8, 0.16), inset 0 0 0 3px rgba(197, 155, 39, 0.15);
             margin-top: 4px;
         }
 
-        /* Subtle Scroll Hint at the Bottom of Each Card */
+        /* Scroll Hint */
         .scroll-hint {
             position: absolute;
-            bottom: 8px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             font-family: 'Amiri', serif;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--gold-deep);
-            opacity: 0.75;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 1;
+            opacity: 0.8;
             animation: bounceDown 2s infinite ease-in-out;
             pointer-events: none;
         }
         @keyframes bounceDown {
             0%, 100% { transform: translate(-50%, 0); }
-            50% { transform: translate(-50%, 5px); }
+            50% { transform: translate(-50%, 4px); }
         }
     </style>
 </head>
 <body>
+
+    <!-- Reusable SVG Definitions for Royal Corner Filigree & Crown Header -->
+    <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="goldLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f5e199"/>
+                <stop offset="45%" stop-color="#c59b27"/>
+                <stop offset="100%" stop-color="#785708"/>
+            </linearGradient>
+            <linearGradient id="pearlShade" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#ede3cf"/>
+            </linearGradient>
+        </defs>
+        <!-- Baroque Corner Ornament Symbol -->
+        <symbol id="royal-corner" viewBox="0 0 60 60">
+            <path d="M2 2 L38 2 C24 6, 12 16, 6 38 L2 38 Z" fill="url(#goldLeaf)" opacity="0.22"/>
+            <path d="M2 2 L46 2 M2 2 L2 46" stroke="url(#goldLeaf)" stroke-width="2.2" fill="none"/>
+            <path d="M7 7 L34 7 C20 12, 12 20, 7 34 Z" stroke="url(#goldLeaf)" stroke-width="1.2" fill="none"/>
+            <circle cx="14" cy="14" r="2.2" fill="url(#goldLeaf)"/>
+            <circle cx="38" cy="6" r="1.5" fill="url(#goldLeaf)"/>
+            <circle cx="6" cy="38" r="1.5" fill="url(#goldLeaf)"/>
+        </symbol>
+        <!-- Small Royal Crown & Flourish Header Symbol -->
+        <symbol id="royal-header-crown" viewBox="0 0 120 60">
+            <path d="M10 48 Q35 48 48 40 M110 48 Q85 48 72 40" stroke="url(#goldLeaf)" stroke-width="1.5" fill="none"/>
+            <path d="M42 36 L46 18 L60 28 L74 18 L78 36 Z" fill="url(#goldLeaf)"/>
+            <path d="M40 39 L80 39" stroke="url(#goldLeaf)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="46" cy="14" r="2.5" fill="url(#goldLeaf)"/>
+            <circle cx="60" cy="11" r="3" fill="url(#goldLeaf)"/>
+            <circle cx="74" cy="14" r="2.5" fill="url(#goldLeaf)"/>
+            <circle cx="60" cy="46" r="2.5" fill="url(#goldLeaf)"/>
+        </symbol>
+    </svg>
 
     <!-- Floating Mute/Unmute Speaker Button -->
     <button id="audio-toggle" onclick="toggleAudio()" title="تشغيل / كتم الموسيقى">
@@ -658,66 +723,74 @@
         </svg>
     </button>
 
-    <!-- YouTube Player for https://youtu.be/FoCG-WNsZio?si=VUZk7LrijgfV1xpO + Audio Fallback -->
+    <!-- YouTube Player for Mariage d'Amour (https://youtu.be/FoCG-WNsZio) + Classical Piano Audio Fallback -->
     <div style="position:fixed; bottom:0; right:0; width:2px; height:2px; opacity:0.01; pointer-events:none; z-index:-1;">
         <div id="yt-player"></div>
     </div>
     <audio id="bg-audio" loop preload="auto" playsinline></audio>
 
-    <!-- ==================== SCREEN 1: OFF-WHITE & GOLD ANIMATED GEESE COVER ==================== -->
+    <!-- ==================== SCREEN 1: SOVEREIGN ROYAL PALACE COVER ==================== -->
     <section id="screen-cover">
-        <!-- Animated Two White Geese/Swans Forming a Golden Heart -->
-        <svg class="cover-geese-stage" viewBox="0 0 240 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="goldOutline" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#f3dc8a"/>
-                    <stop offset="50%" stop-color="#c59b27"/>
-                    <stop offset="100%" stop-color="#8c6710"/>
-                </linearGradient>
-                <linearGradient id="wingPearl" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="100%" stop-color="#efe7d6"/>
-                </linearGradient>
-            </defs>
+        <!-- Full Imperial Coat of Arms with Crowned Swans & Heraldic Shield -->
+        <svg class="royal-coat-of-arms" viewBox="0 0 280 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Heraldic Laurel Wreath Branches -->
+            <path d="M85 185 C50 160, 42 110, 68 72" stroke="url(#goldLeaf)" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+            <path d="M195 185 C230 160, 238 110, 212 72" stroke="url(#goldLeaf)" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
 
-            <!-- Floating Golden Heart Above the Geese -->
-            <path class="floating-heart-gold" d="M120 42 C120 42 104 30 104 19 C104 12 110 8 115 8 C118 8 120 10 120 13 C120 10 122 8 125 8 C130 8 136 12 136 19 C136 30 120 42 120 42 Z" fill="url(#goldOutline)"/>
-
-            <!-- Left White Goose/Swan -->
-            <g class="goose-left">
-                <!-- Body & Folded Feathers -->
-                <path d="M26 122 C18 104, 34 86, 62 88 C82 89, 96 102, 102 122 Z" fill="url(#wingPearl)" stroke="url(#goldOutline)" stroke-width="2"/>
-                <path d="M38 106 C52 96, 74 98, 86 112" stroke="url(#goldOutline)" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M44 114 C58 106, 76 108, 88 118" stroke="url(#goldOutline)" stroke-width="1.5" stroke-linecap="round"/>
-                <!-- Graceful Neck Arching Right to Form Half Heart -->
-                <path d="M95 118 C88 92, 82 54, 104 46 C113 43, 118 50, 119 57" stroke="#ffffff" stroke-width="11" stroke-linecap="round" fill="none"/>
-                <path d="M95 118 C88 92, 82 54, 104 46 C113 43, 118 50, 119 57" stroke="url(#goldOutline)" stroke-width="2" stroke-linecap="round" fill="none"/>
-                <!-- Golden Beak -->
-                <polygon points="118,54 125,59 116,61" fill="#d4af37"/>
+            <!-- Sovereign Imperial Crown at Top -->
+            <g fill="url(#goldLeaf)">
+                <path d="M112 52 L117 26 L140 40 L163 26 L168 52 Z"/>
+                <path d="M110 56 L170 56" stroke="url(#goldLeaf)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="117" cy="21" r="3.5"/>
+                <circle cx="140" cy="17" r="4.2"/>
+                <circle cx="163" cy="21" r="3.5"/>
+                <path d="M140 7 L140 15 M136 11 L144 11" stroke="url(#goldLeaf)" stroke-width="2" stroke-linecap="round"/>
             </g>
 
-            <!-- Right White Goose/Swan -->
-            <g class="goose-right">
-                <!-- Body & Folded Feathers -->
-                <path d="M214 122 C222 104, 206 86, 178 88 C158 89, 144 102, 138 122 Z" fill="url(#wingPearl)" stroke="url(#goldOutline)" stroke-width="2"/>
-                <path d="M202 106 C188 96, 166 98, 154 112" stroke="url(#goldOutline)" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M196 114 C182 106, 164 108, 152 118" stroke="url(#goldOutline)" stroke-width="1.5" stroke-linecap="round"/>
-                <!-- Graceful Neck Arching Left to Complete the Heart -->
-                <path d="M145 118 C152 92, 158 54, 136 46 C127 43, 122 50, 121 57" stroke="#ffffff" stroke-width="11" stroke-linecap="round" fill="none"/>
-                <path d="M145 118 C152 92, 158 54, 136 46 C127 43, 122 50, 121 57" stroke="url(#goldOutline)" stroke-width="2" stroke-linecap="round" fill="none"/>
-                <!-- Golden Beak -->
-                <polygon points="122,54 115,59 124,61" fill="#d4af37"/>
+            <!-- Left Heraldic Crowned Swan Supporter -->
+            <g class="swan-supporter-left">
+                <path d="M28 148 C18 126, 36 102, 68 106 C86 108, 96 122, 102 146 Z" fill="url(#pearlShade)" stroke="url(#goldLeaf)" stroke-width="2.2"/>
+                <path d="M40 128 C55 116, 76 118, 90 132" stroke="url(#goldLeaf)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M46 138 C60 128, 78 130, 92 140" stroke="url(#goldLeaf)" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Graceful Neck Arching Toward Shield -->
+                <path d="M92 138 C80 108, 74 72, 95 64 C104 61, 110 68, 110 75" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+                <path d="M92 138 C80 108, 74 72, 95 64 C104 61, 110 68, 110 75" stroke="url(#goldLeaf)" stroke-width="2" stroke-linecap="round"/>
+                <!-- Mini Ducal Coronet on Swan Head -->
+                <polygon points="91,59 94,53 98,57 102,53 105,59" fill="url(#goldLeaf)"/>
+                <polygon points="109,72 116,76 108,78" fill="#c59b27"/>
             </g>
 
-            <!-- Shimmering Golden Water Ripples -->
-            <path d="M20 132 Q70 127 120 132 T220 132" stroke="url(#goldOutline)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <path d="M45 142 Q95 138 145 142 T195 142" stroke="url(#goldOutline)" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.75"/>
-            <path d="M75 151 Q120 148 165 151" stroke="url(#goldOutline)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/>
+            <!-- Right Heraldic Crowned Swan Supporter -->
+            <g class="swan-supporter-right">
+                <path d="M252 148 C262 126, 244 102, 212 106 C194 108, 184 122, 178 146 Z" fill="url(#pearlShade)" stroke="url(#goldLeaf)" stroke-width="2.2"/>
+                <path d="M240 128 C225 116, 204 118, 190 132" stroke="url(#goldLeaf)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M234 138 C220 128, 202 130, 188 140" stroke="url(#goldLeaf)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M188 138 C200 108, 206 72, 185 64 C176 61, 170 68, 170 75" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+                <path d="M188 138 C200 108, 206 72, 185 64 C176 61, 170 68, 170 75" stroke="url(#goldLeaf)" stroke-width="2" stroke-linecap="round"/>
+                <!-- Mini Ducal Coronet on Swan Head -->
+                <polygon points="175,59 178,53 182,57 186,53 189,59" fill="url(#goldLeaf)"/>
+                <polygon points="171,72 164,76 172,78" fill="#c59b27"/>
+            </g>
+
+            <!-- Center Royal Coat of Arms Shield -->
+            <path d="M104 64 L176 64 L176 116 C176 148, 140 168, 140 168 C140 168, 104 148, 104 116 Z" fill="#fffdf8" stroke="url(#goldLeaf)" stroke-width="3.5"/>
+            <path d="M110 70 L170 70 L170 115 C170 142, 140 160, 140 160 C140 160, 110 142, 110 115 Z" fill="none" stroke="url(#goldLeaf)" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <text x="140" y="122" text-anchor="middle" fill="url(#goldLeaf)" font-family="'Great Vibes', cursive" font-size="32">R &amp; H</text>
+
+            <!-- Royal Motto Scroll Banner at Base -->
+            <path d="M62 182 Q140 196 218 182 L212 204 Q140 218 68 204 Z" fill="#fffdf8" stroke="url(#goldLeaf)" stroke-width="2"/>
+            <text x="140" y="199" text-anchor="middle" fill="#785708" font-family="'Cinzel Decorative', serif" font-weight="700" font-size="9.5" letter-spacing="2.5">ROAA &amp; HOSAM • MMXXVI</text>
         </svg>
 
         <div class="cover-frame">
-            <div class="cover-subtitle">THE WEDDING OF</div>
-            <h1 class="cover-names">Roaa &amp; Hosam</h1>
+            <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+            <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+            <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+            <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+
+            <div class="cover-decree-tag">BY ROYAL INVITATION</div>
+            <div class="cover-subtitle">THE WEDDING CELEBRATION OF</div>
+            <h1 class="cover-names gold-foil-text">Roaa &amp; Hosam</h1>
             <div class="cover-divider"></div>
             <p class="cover-quote">
                 Two hearts, one soul, an eternity of love.<br>
@@ -728,69 +801,71 @@
         <button class="continue-btn" onclick="goToSealScreen()">اضغط للمتابعة</button>
     </section>
 
-    <!-- ==================== SCREEN 2: PEARL & GOLD HEART WAX SEAL ==================== -->
+    <!-- ==================== SCREEN 2: ROYAL ENVELOPE & 24K GOLD SIGNET WAX SEAL ==================== -->
     <section id="screen-seal">
         <div class="envelope-flap">
-            <div class="envelope-names">Roaa &amp; Hosam</div>
+            <div class="envelope-crown-title">ROYAL WEDDING DECREE</div>
+            <div class="envelope-names gold-foil-text">Roaa &amp; Hosam</div>
         </div>
 
         <div class="seal-trigger" onclick="openInvitationDeck()">
-            <!-- Antique Pearl-Ivory & Royal Gold Heart Wax Seal -->
+            <!-- 24K Gold & Pearl Imperial Signet Wax Seal -->
             <svg class="prestigious-wax-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <radialGradient id="pearlWaxOuter" cx="35%" cy="30%" r="70%">
+                    <radialGradient id="goldWaxOuter" cx="35%" cy="30%" r="70%">
+                        <stop offset="0%" stop-color="#fff4c2"/>
+                        <stop offset="40%" stop-color="#dfc163"/>
+                        <stop offset="80%" stop-color="#ab8318"/>
+                        <stop offset="100%" stop-color="#6b4e05"/>
+                    </radialGradient>
+                    <radialGradient id="pearlWaxCenter" cx="40%" cy="35%" r="65%">
                         <stop offset="0%" stop-color="#ffffff"/>
-                        <stop offset="45%" stop-color="#f5efe2"/>
-                        <stop offset="85%" stop-color="#ddd2bd"/>
-                        <stop offset="100%" stop-color="#bfb097"/>
+                        <stop offset="70%" stop-color="#f2ead9"/>
+                        <stop offset="100%" stop-color="#d6c8ae"/>
                     </radialGradient>
-                    <radialGradient id="pearlWaxInner" cx="40%" cy="35%" r="65%">
-                        <stop offset="0%" stop-color="#faf5ea"/>
-                        <stop offset="70%" stop-color="#e3d8c4"/>
-                        <stop offset="100%" stop-color="#c9bba3"/>
-                    </radialGradient>
-                    <linearGradient id="royalGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#fae596"/>
-                        <stop offset="45%" stop-color="#c59b27"/>
-                        <stop offset="100%" stop-color="#7d5c09"/>
-                    </linearGradient>
                     <filter id="embossShadow" x="-10%" y="-10%" width="120%" height="120%">
-                        <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#7a6236" flood-opacity="0.45"/>
+                        <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#5e4304" flood-opacity="0.5"/>
                     </filter>
                 </defs>
 
-                <path d="M120 12 C148 10, 175 20, 196 38 C218 57, 228 88, 226 118 C224 148, 216 178, 194 198 C172 218, 146 229, 118 227 C89 225, 62 216, 42 195 C21 174, 12 146, 14 116 C16 86, 26 56, 48 36 C69 17, 94 14, 120 12 Z" fill="url(#pearlWaxOuter)" stroke="url(#royalGold)" stroke-width="2.5"/>
-                <circle cx="120" cy="120" r="86" fill="url(#pearlWaxInner)" stroke="url(#royalGold)" stroke-width="2.5"/>
-                <circle cx="120" cy="120" r="79" fill="none" stroke="url(#royalGold)" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <!-- Organic Melted 24K Gold Wax Outer Rim -->
+                <path d="M120 12 C148 10, 175 20, 196 38 C218 57, 228 88, 226 118 C224 148, 216 178, 194 198 C172 218, 146 229, 118 227 C89 225, 62 216, 42 195 C21 174, 12 146, 14 116 C16 86, 26 56, 48 36 C69 17, 94 14, 120 12 Z" fill="url(#goldWaxOuter)" stroke="#785708" stroke-width="2.5"/>
+                <circle cx="120" cy="120" r="86" fill="url(#pearlWaxCenter)" stroke="url(#goldLeaf)" stroke-width="3.5"/>
+                <circle cx="120" cy="120" r="78" fill="none" stroke="url(#goldLeaf)" stroke-width="1.4" stroke-dasharray="4 3"/>
 
-                <!-- Crown Crest -->
-                <g filter="url(#embossShadow)" fill="url(#royalGold)">
-                    <path d="M98 62 L104 46 L120 56 L136 46 L142 62 Z"/>
-                    <circle cx="104" cy="43" r="2.5"/>
-                    <circle cx="120" cy="41" r="3"/>
-                    <circle cx="136" cy="43" r="2.5"/>
+                <!-- Royal Crown Above Heart Crest -->
+                <g filter="url(#embossShadow)" fill="url(#goldLeaf)">
+                    <path d="M96 62 L103 44 L120 55 L137 44 L144 62 Z"/>
+                    <circle cx="103" cy="40" r="2.8"/>
+                    <circle cx="120" cy="38" r="3.4"/>
+                    <circle cx="137" cy="40" r="2.8"/>
                 </g>
 
-                <!-- Embossed Pearl & Gold Heart Center -->
-                <path filter="url(#embossShadow)" d="M120 176 C120 176 64 138 64 96 C64 75 80 62 98 62 C109 62 116 68 120 76 C124 68 131 62 142 62 C160 62 176 75 176 96 C176 138 120 176 120 176 Z" fill="url(#pearlWaxOuter)" stroke="url(#royalGold)" stroke-width="3"/>
-                <path d="M55 125 C52 155, 78 184, 112 190" stroke="url(#royalGold)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <path d="M185 125 C188 155, 162 184, 128 190" stroke="url(#royalGold)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <text x="120" y="122" text-anchor="middle" fill="url(#royalGold)" font-family="'Great Vibes', cursive" font-size="38" filter="url(#embossShadow)">R &amp; H</text>
+                <!-- Embossed Royal Heart Shield -->
+                <path filter="url(#embossShadow)" d="M120 176 C120 176 64 138 64 96 C64 75 80 62 98 62 C109 62 116 68 120 76 C124 68 131 62 142 62 C160 62 176 75 176 96 C176 138 120 176 120 176 Z" fill="#fffdf8" stroke="url(#goldLeaf)" stroke-width="3.5"/>
+                <path d="M55 125 C52 155, 78 184, 112 190" stroke="url(#goldLeaf)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                <path d="M185 125 C188 155, 162 184, 128 190" stroke="url(#goldLeaf)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                <text x="120" y="122" text-anchor="middle" fill="url(#goldLeaf)" font-family="'Great Vibes', cursive" font-size="38" filter="url(#embossShadow)">R &amp; H</text>
             </svg>
 
-            <div class="open-envelope-pill">اضغط على الختم لفتح الدعوة</div>
+            <div class="open-envelope-pill">اضغط على الختم الملكي لفتح الدعوة</div>
         </div>
     </section>
 
-    <!-- ==================== SCREEN 3: VERTICAL SCROLL-SNAP INVITATION DECK ==================== -->
+    <!-- ==================== SCREEN 3: VERTICAL SCROLL-SNAP ROYAL STATIONERY DECK ==================== -->
     <main id="screen-deck">
 
-        <!-- ========== PAGE 1 OF 7: WELCOME & ANIMATED TWO GEESE ========== -->
+        <!-- ========== PAGE 1 OF 7: ROYAL PROCLAMATION & CROWNED SWANS CAMEO ========== -->
         <section class="snap-section">
             <article class="page-card">
-                <div class="card-roses-top"></div>
+                <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+                <svg class="card-royal-crest"><use href="#royal-header-crown"/></svg>
+
                 <div class="card-body">
-                    <h2 class="section-title">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</h2>
+                    <h2 class="section-title gold-foil-text">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</h2>
 
                     <p class="arabic-verse">
                         في محضر الحب، أريدكم حولي؛<br>
@@ -799,31 +874,36 @@
                         في قلبي أثر جميل.
                     </p>
 
-                    <!-- Animated Two White Geese/Swans Forming a Heart on Off-White & Gold -->
-                    <div class="geese-pond-stage">
-                        <svg viewBox="0 0 240 175" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Soft Golden Halo Behind the Geese -->
-                            <circle cx="120" cy="88" r="68" fill="rgba(197, 155, 39, 0.08)" stroke="rgba(197, 155, 39, 0.35)" stroke-width="1.2" stroke-dasharray="4 4"/>
-                            <path class="floating-heart-gold" d="M120 40 C120 40 105 28 105 18 C105 11 110 7 115 7 C118 7 120 9 120 12 C120 9 122 7 125 7 C130 7 135 11 135 18 C135 28 120 40 120 40 Z" fill="#c59b27"/>
+                    <!-- Royal Gold-Framed Porcelain Cameo with Two Crowned Swans/Geese -->
+                    <div class="royal-cameo-stage">
+                        <svg viewBox="0 0 240 170" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Ornate Gold Medallion Frame -->
+                            <ellipse cx="120" cy="88" rx="98" ry="68" fill="#fdfaf2" stroke="url(#goldLeaf)" stroke-width="3"/>
+                            <ellipse cx="120" cy="88" rx="92" ry="62" fill="none" stroke="url(#goldLeaf)" stroke-width="1" stroke-dasharray="4 3"/>
 
-                            <g class="goose-left">
-                                <path d="M26 122 C18 104, 34 86, 62 88 C82 89, 96 102, 102 122 Z" fill="#ffffff" stroke="#c59b27" stroke-width="2"/>
-                                <path d="M38 106 C52 96, 74 98, 86 112" stroke="#c59b27" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M95 118 C88 92, 82 54, 104 46 C113 43, 118 50, 119 57" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
-                                <path d="M95 118 C88 92, 82 54, 104 46 C113 43, 118 50, 119 57" stroke="#c59b27" stroke-width="2" stroke-linecap="round"/>
-                                <polygon points="118,54 125,59 116,61" fill="#c59b27"/>
+                            <!-- Crowned Heart at Top of Cameo -->
+                            <path d="M120 44 C120 44 106 33 106 23 C106 17 111 13 115 13 C118 13 120 15 120 18 C120 15 122 13 125 13 C129 13 134 17 134 23 C134 33 120 44 120 44 Z" fill="url(#goldLeaf)"/>
+
+                            <g class="swan-supporter-left">
+                                <path d="M38 118 C30 102, 44 86, 70 88 C88 89, 100 100, 105 118 Z" fill="#ffffff" stroke="url(#goldLeaf)" stroke-width="2"/>
+                                <path d="M48 104 C60 95, 78 97, 90 108" stroke="url(#goldLeaf)" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M98 114 C92 90, 86 56, 106 49 C114 46, 118 52, 119 59" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+                                <path d="M98 114 C92 90, 86 56, 106 49 C114 46, 118 52, 119 59" stroke="url(#goldLeaf)" stroke-width="2" stroke-linecap="round"/>
+                                <polygon points="101,44 104,39 107,43 110,39 113,44" fill="url(#goldLeaf)"/>
+                                <polygon points="118,56 124,60 116,62" fill="#c59b27"/>
                             </g>
 
-                            <g class="goose-right">
-                                <path d="M214 122 C222 104, 206 86, 178 88 C158 89, 144 102, 138 122 Z" fill="#ffffff" stroke="#c59b27" stroke-width="2"/>
-                                <path d="M202 106 C188 96, 166 98, 154 112" stroke="#c59b27" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M145 118 C152 92, 158 54, 136 46 C127 43, 122 50, 121 57" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
-                                <path d="M145 118 C152 92, 158 54, 136 46 C127 43, 122 50, 121 57" stroke="#c59b27" stroke-width="2" stroke-linecap="round"/>
-                                <polygon points="122,54 115,59 124,61" fill="#c59b27"/>
+                            <g class="swan-supporter-right">
+                                <path d="M202 118 C210 102, 196 86, 170 88 C152 89, 140 100, 135 118 Z" fill="#ffffff" stroke="url(#goldLeaf)" stroke-width="2"/>
+                                <path d="M192 104 C180 95, 162 97, 150 108" stroke="url(#goldLeaf)" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M142 114 C148 90, 154 56, 134 49 C126 46, 122 52, 121 59" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+                                <path d="M142 114 C148 90, 154 56, 134 49 C126 46, 122 52, 121 59" stroke="url(#goldLeaf)" stroke-width="2" stroke-linecap="round"/>
+                                <polygon points="127,44 130,39 133,43 136,39 139,44" fill="url(#goldLeaf)"/>
+                                <polygon points="122,56 116,60 124,62" fill="#c59b27"/>
                             </g>
 
-                            <path d="M24 132 Q70 127 120 132 T216 132" stroke="#c59b27" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                            <path d="M50 142 Q95 138 145 142 T190 142" stroke="#c59b27" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+                            <path d="M42 126 Q80 122 120 126 T198 126" stroke="url(#goldLeaf)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                            <path d="M68 134 Q105 131 142 134 T172 134" stroke="url(#goldLeaf)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.7"/>
                         </svg>
                     </div>
 
@@ -837,32 +917,37 @@
             </article>
         </section>
 
-        <!-- ========== PAGE 2 OF 7: THE BRIDE & MOTHER'S TRIBUTE ========== -->
+        <!-- ========== PAGE 2 OF 7: THE BRIDE & MOTHER'S ROYAL MEMORIAL TRIBUTE ========== -->
         <section class="snap-section">
             <article class="page-card">
-                <div class="card-roses-top"></div>
-                <div class="card-body">
-                    <div class="diamond-divider"><span>◆</span></div>
+                <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+                <svg class="card-royal-crest"><use href="#royal-header-crown"/></svg>
 
-                    <h3 class="bride-name">رؤى جمعة الرقيق</h3>
-                    <p class="arabic-verse" style="font-size: 1.4rem; color: var(--gold-text); font-weight: 700;">
+                <div class="card-body">
+                    <div class="royal-divider"><span>❖</span></div>
+
+                    <h3 class="bride-name gold-foil-text">رؤى جمعة الرقيق</h3>
+                    <p class="arabic-verse" style="font-size: 1.42rem; color: var(--gold-deep); font-weight: 700;">
                         ابنة المرحومة نجوى الواعر
                     </p>
 
                     <div class="tribute-frame">
-                        <p class="arabic-verse" style="font-size: 1.35rem; margin-bottom: 0; color: var(--ink);">
+                        <p class="arabic-verse" style="font-size: 1.36rem; margin-bottom: 0; color: var(--ink-royal);">
                             رحم اللّٰه قلبًا تمنّيت أن يكون أول الحاضرين،<br>
                             وجعل دعواتها وأثرها الطيب رفيقًا لي<br>
                             في أجمل أيام عمري.
                         </p>
                     </div>
 
-                    <svg width="85" height="70" viewBox="0 0 100 85" fill="none" style="margin-top: 8px;">
-                        <path d="M50 75 C50 75 15 50 15 27 C15 14 26 6 38 6 C45 6 48 10 50 15 C52 10 55 6 62 6 C74 6 85 14 85 27 C85 50 50 75 50 75 Z" stroke="#c59b27" stroke-width="2" fill="rgba(197,155,39,0.08)"/>
-                        <path d="M34 40 C42 30, 58 30, 66 40 C58 37, 42 37, 34 40 Z" fill="#c59b27"/>
+                    <svg width="90" height="65" viewBox="0 0 100 75" fill="none" style="margin-top: 6px;">
+                        <path d="M50 68 C50 68 18 45 18 24 C18 12 28 5 39 5 C45 5 48 9 50 13 C52 9 55 5 61 5 C72 5 82 12 82 24 C82 45 50 68 50 68 Z" stroke="url(#goldLeaf)" stroke-width="2" fill="rgba(197,155,39,0.07)"/>
+                        <path d="M35 36 C43 27, 57 27, 65 36 C57 33, 43 33, 35 36 Z" fill="url(#goldLeaf)"/>
                     </svg>
 
-                    <div class="diamond-divider"><span>◆</span></div>
+                    <div class="royal-divider"><span>❖</span></div>
                 </div>
                 <div class="scroll-hint">اسحب للأعلى ⌄</div>
             </article>
@@ -871,13 +956,18 @@
         <!-- ========== PAGE 3 OF 7: GREGORIAN DATE, CALENDAR & COUNTDOWN ========== -->
         <section class="snap-section">
             <article class="page-card">
-                <div class="card-roses-top"></div>
+                <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+                <svg class="card-royal-crest"><use href="#royal-header-crown"/></svg>
+
                 <div class="card-body">
-                    <h3 class="section-title" style="margin-bottom: 2px;">موعد الحفل</h3>
+                    <h3 class="section-title gold-foil-text" style="margin-bottom: 2px;">موعد الحفل</h3>
 
                     <div class="date-trio">
                         <div class="date-side">السبت</div>
-                        <div class="date-center-num">5</div>
+                        <div class="date-center-num gold-foil-text">5</div>
                         <div class="date-side">
                             ديسمبر
                             <span>2026</span>
@@ -885,7 +975,7 @@
                     </div>
 
                     <div class="calendar-card">
-                        <div style="font-weight:700; font-size:1.3rem; color:var(--gold-text); margin-bottom:4px;">ديسمبر 2026</div>
+                        <div style="font-weight:700; font-size:1.3rem; color:var(--gold-deep); margin-bottom:4px;">ديسمبر 2026</div>
                         <div class="cal-grid">
                             <div class="cal-day-header">س</div>
                             <div class="cal-day-header">ح</div>
@@ -960,45 +1050,33 @@
             </article>
         </section>
 
-        <!-- ========== PAGE 4 OF 7: TIMING FIRST (GLAMOROUS TIMEPIECE), LOCATION SECOND ========== -->
+        <!-- ========== PAGE 4 OF 7: TIMING FIRST (ROYAL TIMEPIECE), LOCATION SECOND ========== -->
         <section class="snap-section">
             <article class="page-card">
-                <div class="card-roses-top"></div>
+                <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+                <svg class="card-royal-crest"><use href="#royal-header-crown"/></svg>
+
                 <div class="card-body">
-                    <!-- 1. Wedding Timing at the Top with Glamorous Royal Pocket-Watch Timepiece -->
-                    <h3 class="section-title" style="margin-bottom: 2px;">موعد بدء الحفل</h3>
+                    <!-- 1. Wedding Timing at the Top -->
+                    <h3 class="section-title gold-foil-text" style="margin-bottom: 2px;">موعد بدء الحفل</h3>
 
                     <svg class="glam-clock-svg" viewBox="0 0 120 135" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="watchGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#f5df8e"/>
-                                <stop offset="50%" stop-color="#c59b27"/>
-                                <stop offset="100%" stop-color="#87630d"/>
-                            </linearGradient>
-                            <radialGradient id="watchDial" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stop-color="#ffffff"/>
-                                <stop offset="85%" stop-color="#fbf6ea"/>
-                                <stop offset="100%" stop-color="#e8dec6"/>
-                            </radialGradient>
-                        </defs>
-                        <!-- Ornate Top Pocket-Watch Crown & Bow Ring -->
-                        <circle cx="60" cy="14" r="10" stroke="url(#watchGold)" stroke-width="2.5" fill="none"/>
-                        <rect x="54" y="21" width="12" height="7" rx="2" fill="url(#watchGold)"/>
-                        <!-- Filigree Side Ears -->
-                        <path d="M45 30 Q52 24 60 28 Q68 24 75 30" stroke="url(#watchGold)" stroke-width="2" fill="none"/>
+                        <circle cx="60" cy="14" r="10" stroke="url(#goldLeaf)" stroke-width="2.5" fill="none"/>
+                        <rect x="54" y="21" width="12" height="7" rx="2" fill="url(#goldLeaf)"/>
+                        <path d="M45 30 Q52 24 60 28 Q68 24 75 30" stroke="url(#goldLeaf)" stroke-width="2" fill="none"/>
 
-                        <!-- Outer Diamond-Cut Gold Bezel -->
-                        <circle cx="60" cy="76" r="48" fill="url(#watchDial)" stroke="url(#watchGold)" stroke-width="3.5"/>
-                        <circle cx="60" cy="76" r="43" fill="none" stroke="url(#watchGold)" stroke-width="1" stroke-dasharray="2 3"/>
-                        <circle cx="60" cy="76" r="32" fill="none" stroke="url(#watchGold)" stroke-width="0.8" opacity="0.6"/>
+                        <circle cx="60" cy="76" r="48" fill="#fffdf9" stroke="url(#goldLeaf)" stroke-width="3.5"/>
+                        <circle cx="60" cy="76" r="43" fill="none" stroke="url(#goldLeaf)" stroke-width="1" stroke-dasharray="2 3"/>
+                        <circle cx="60" cy="76" r="32" fill="none" stroke="url(#goldLeaf)" stroke-width="0.8" opacity="0.6"/>
 
-                        <!-- Delicate Roman Numerals -->
-                        <text x="60" y="42" text-anchor="middle" fill="#8c6710" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">XII</text>
-                        <text x="97" y="79" text-anchor="middle" fill="#8c6710" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">III</text>
-                        <text x="60" y="114" text-anchor="middle" fill="#8c6710" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">VI</text>
-                        <text x="23" y="79" text-anchor="middle" fill="#8c6710" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">IX</text>
+                        <text x="60" y="42" text-anchor="middle" fill="#785708" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">XII</text>
+                        <text x="97" y="79" text-anchor="middle" fill="#785708" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">III</text>
+                        <text x="60" y="114" text-anchor="middle" fill="#785708" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">VI</text>
+                        <text x="23" y="79" text-anchor="middle" fill="#785708" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="9">IX</text>
 
-                        <!-- Diamond Hour Markers for Other Hours -->
                         <circle cx="79" cy="44" r="1.5" fill="#c59b27"/>
                         <circle cx="92" cy="57" r="1.5" fill="#c59b27"/>
                         <circle cx="92" cy="95" r="1.5" fill="#c59b27"/>
@@ -1008,36 +1086,33 @@
                         <circle cx="28" cy="57" r="1.5" fill="#c59b27"/>
                         <circle cx="41" cy="44" r="1.5" fill="#c59b27"/>
 
-                        <!-- Ornate Filigree Hands Pointing to 7:30 -->
-                        <!-- Minute Hand (Pointing to 6 / 30 mins) -->
-                        <path d="M60 76 L60 105" stroke="url(#watchGold)" stroke-width="2.2" stroke-linecap="round"/>
-                        <polygon points="60,96 57,90 60,86 63,90" fill="url(#watchGold)"/>
-                        <!-- Hour Hand (Pointing halfway between 7 and 8) -->
+                        <!-- Hands Pointing to 7:30 -->
+                        <path d="M60 76 L60 105" stroke="url(#goldLeaf)" stroke-width="2.2" stroke-linecap="round"/>
+                        <polygon points="60,96 57,90 60,86 63,90" fill="url(#goldLeaf)"/>
                         <path d="M60 76 L41 93" stroke="#6e5008" stroke-width="2.8" stroke-linecap="round"/>
-                        <polygon points="46,88 48,83 53,85" fill="url(#watchGold)"/>
-                        <!-- Center Jewel Cap -->
-                        <circle cx="60" cy="76" r="4" fill="url(#watchGold)"/>
+                        <polygon points="46,88 48,83 53,85" fill="url(#goldLeaf)"/>
+                        <circle cx="60" cy="76" r="4" fill="url(#goldLeaf)"/>
                         <circle cx="60" cy="76" r="1.5" fill="#fff"/>
                     </svg>
 
-                    <p style="font-weight:700; font-size:1.35rem; color:var(--gold-text); margin-top: -2px;">يبدأ الحفل</p>
+                    <p style="font-weight:700; font-size:1.32rem; color:var(--gold-deep); margin-top: -2px;">يبدأ الحفل</p>
                     <div class="time-row">
-                        <span style="font-weight:700; font-size:1.4rem; color:var(--gold-text);">الساعة</span>
-                        <span class="big-time">7:30</span>
-                        <span style="font-weight:700; font-size:1.4rem; color:var(--gold-text);">مساءً</span>
+                        <span style="font-weight:700; font-size:1.38rem; color:var(--gold-deep);">الساعة</span>
+                        <span class="big-time gold-foil-text">7:30</span>
+                        <span style="font-weight:700; font-size:1.38rem; color:var(--gold-deep);">مساءً</span>
                     </div>
 
-                    <div class="diamond-divider"><span>◆</span></div>
+                    <div class="royal-divider"><span>❖</span></div>
 
                     <!-- 2. Venue Location at the Bottom -->
-                    <h3 class="section-title" style="margin-bottom: 2px; font-size: 1.95rem;">مكان الحفل</h3>
+                    <h3 class="section-title gold-foil-text" style="margin-bottom: 2px; font-size: 1.9rem;">مكان الحفل</h3>
 
                     <svg class="pin-icon" viewBox="0 0 24 24">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
 
-                    <p style="font-size:1.75rem; font-weight:700; color:var(--gold-text); margin-bottom: 0;">قاعة فايف ستارز</p>
-                    <p class="arabic-verse" style="margin-bottom: 4px; font-size: 1.22rem;">يسعدنا استقبالكم</p>
+                    <p style="font-size:1.72rem; font-weight:700; color:var(--gold-deep); margin-bottom: 0;">قاعة فايف ستارز</p>
+                    <p class="arabic-verse" style="margin-bottom: 4px; font-size: 1.2rem;">يسعدنا استقبالكم</p>
 
                     <a href="https://maps.app.goo.gl/VdpLCPVS866tfDZq9?g_st=ic" target="_blank" rel="noopener" class="map-pill-btn">
                         📍 عرض الموقع على الخريطة
@@ -1047,13 +1122,18 @@
             </article>
         </section>
 
-        <!-- ========== PAGE 5 OF 7: DEDICATED CHILDREN & PRIVACY PAGE ========== -->
+        <!-- ========== PAGE 5 OF 7: DEDICATED ROYAL ETIQUETTE & PRIVACY DECREE ========== -->
         <section class="snap-section">
             <article class="page-card">
-                <div class="card-roses-top"></div>
+                <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+                <svg class="card-royal-crest"><use href="#royal-header-crown"/></svg>
+
                 <div class="card-body">
-                    <div class="diamond-divider"><span>◆</span></div>
-                    <h3 class="section-title">ممنوع اصطحاب الأطفال</h3>
+                    <div class="royal-divider"><span>❖</span></div>
+                    <h3 class="section-title gold-foil-text">ممنوع اصطحاب الأطفال</h3>
 
                     <div class="note-card-box">
                         <p class="arabic-verse" style="margin-bottom: 0;">
@@ -1063,7 +1143,7 @@
                         </p>
                     </div>
 
-                    <div class="diamond-divider"><span>◆</span></div>
+                    <div class="royal-divider"><span>❖</span></div>
 
                     <div class="note-card-box">
                         <p class="arabic-verse" style="margin-bottom: 0;">
@@ -1073,21 +1153,26 @@
                             أحب أن تبقى ذكرى خاصة بي.
                         </p>
                     </div>
-                    <div class="diamond-divider"><span>◆</span></div>
+                    <div class="royal-divider"><span>❖</span></div>
                 </div>
                 <div class="scroll-hint">اسحب للأعلى ⌄</div>
             </article>
         </section>
 
-        <!-- ========== PAGE 6 OF 7: RSVP (CONNECTED TO HOSAM & ROAA EMAILS) ========== -->
+        <!-- ========== PAGE 6 OF 7: ROYAL RSVP ========== -->
         <section class="snap-section">
             <article class="page-card">
-                <div class="card-roses-top"></div>
+                <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+                <svg class="card-royal-crest"><use href="#royal-header-crown"/></svg>
+
                 <div class="card-body">
-                    <h3 class="section-title">تأكيد الحضور</h3>
+                    <h3 class="section-title gold-foil-text">تأكيد الحضور</h3>
                     <p class="arabic-verse" style="font-size: 1.22rem; margin-bottom: 8px;">
                         يسعدنا تأكيد حضوركم ومشاركتنا أجمل لحظات العمر<br>
-                        <small style="color: var(--muted);">(قبل تاريخ 01 / 12 / 2026)</small>
+                        <small style="color: var(--ink-muted);">(قبل تاريخ 01 / 12 / 2026)</small>
                     </p>
 
                     <div class="rsvp-box">
@@ -1096,9 +1181,9 @@
                             <textarea name="رسالة_للعروسة" class="rsvp-field" placeholder="رسالة للعروسة"></textarea>
                             <button type="submit" id="rsvpBtn" class="rsvp-submit-btn">تأكيد الحضور</button>
                         </form>
-                        <div id="rsvpThankYou" style="display:none; padding: 14px 6px; color: var(--gold-text); font-size: 1.3rem; font-weight: 700;">
+                        <div id="rsvpThankYou" style="display:none; padding: 14px 6px; color: var(--gold-deep); font-size: 1.3rem; font-weight: 700;">
                             شكراً لكم! تم إرسال تأكيد حضوركم ورسالتكم بكل محبة.<br>
-                            <small style="color: var(--muted); font-size: 1.05rem;">اسحب للأعلى لمشاهدة الصفحة الأخيرة ⌄</small>
+                            <small style="color: var(--ink-muted); font-size: 1.05rem;">اسحب للأعلى لمشاهدة الصفحة الأخيرة ⌄</small>
                         </div>
                     </div>
                 </div>
@@ -1106,19 +1191,23 @@
             </article>
         </section>
 
-        <!-- ========== PAGE 7 OF 7: GRAND FINALE - CLASSIC CAR & BLESSING ========== -->
+        <!-- ========== PAGE 7 OF 7: GRAND ROYAL FINALE - CLASSIC CAR & BLESSING ========== -->
         <section class="snap-section">
             <article class="page-card">
-                <div class="card-roses-top"></div>
+                <svg class="corner-ornament corner-tl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-tr"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-bl"><use href="#royal-corner"/></svg>
+                <svg class="corner-ornament corner-br"><use href="#royal-corner"/></svg>
+                <svg class="card-royal-crest"><use href="#royal-header-crown"/></svg>
+
                 <div class="card-body">
-                    <div class="finale-names-en">Roaa &amp; Hosam</div>
-                    <div style="font-size:1.65rem; font-weight:700; color:var(--gold-text); margin-top: -2px;">
+                    <div class="finale-names-en gold-foil-text">Roaa &amp; Hosam</div>
+                    <div style="font-size:1.65rem; font-weight:700; color:var(--gold-deep); margin-top: -2px;">
                         رؤى &amp; حسام
                     </div>
 
                     <div class="finale-blessing">« زواج الدهر يا رب »</div>
 
-                    <!-- Back of Classic Pearl-Ivory & Gold Convertible Wedding Car -->
                     <div class="classic-car-frame">
                         <svg viewBox="0 0 420 265" width="100%" xmlns="http://www.w3.org/2000/svg">
                             <defs>
@@ -1134,15 +1223,13 @@
                                 </linearGradient>
                             </defs>
 
-                            <rect x="0" y="0" width="420" height="265" rx="12" fill="#faf5ea"/>
+                            <rect x="0" y="0" width="420" height="265" rx="8" fill="#faf5ea"/>
                             <circle cx="210" cy="110" r="95" fill="#f2e6ce" opacity="0.65"/>
                             <ellipse cx="210" cy="232" rx="155" ry="14" fill="rgba(140, 105, 20, 0.16)"/>
 
-                            <!-- Floating Golden Hearts -->
                             <path d="M115 38 C115 38 103 29 103 21 C103 16 107 13 111 13 C113 13 115 15 115 17 C115 15 117 13 119 13 C123 13 127 16 127 21 C127 29 115 38 115 38 Z" fill="#c59b27"/>
                             <path d="M305 34 C305 34 295 26 295 19 C295 15 298 13 301 13 C303 13 305 14 305 16 C305 14 307 13 309 13 C312 13 315 15 315 19 C315 26 305 34 305 34 Z" fill="#d4af37"/>
 
-                            <!-- Groom & Bride Silhouettes -->
                             <circle cx="178" cy="70" r="15" fill="#2c221e"/>
                             <path d="M152 98 C152 84, 204 84, 204 98 Z" fill="#1f1a1c"/>
                             <circle cx="238" cy="72" r="14" fill="#3b2820"/>
@@ -1163,7 +1250,6 @@
 
                             <rect x="54" y="186" width="312" height="16" rx="8" fill="url(#chrome)" stroke="#9e7a18" stroke-width="1.5"/>
 
-                            <!-- Trailing Golden Cans -->
                             <line x1="145" y1="202" x2="135" y2="236" stroke="#c59b27" stroke-width="2"/>
                             <rect x="128" y="234" width="12" height="16" rx="2" fill="url(#chrome)" stroke="#9e7a18"/>
                             <line x1="210" y1="202" x2="210" y2="240" stroke="#c59b27" stroke-width="2"/>
@@ -1171,7 +1257,7 @@
                             <line x1="275" y1="202" x2="285" y2="236" stroke="#c59b27" stroke-width="2"/>
                             <rect x="278" y="234" width="12" height="16" rx="2" fill="url(#chrome)" stroke="#9e7a18"/>
 
-                            <!-- Lush Bouquet of White, Champagne & Blush Roses on Trunk -->
+                            <!-- White & Gold Royal Rose Bouquet -->
                             <g>
                                 <ellipse cx="210" cy="116" rx="76" ry="18" fill="#4f6f52"/>
                                 <path d="M130 118 Q105 132 95 145" stroke="#4f6f52" stroke-width="4" fill="none" stroke-linecap="round"/>
@@ -1189,12 +1275,11 @@
                                 <path d="M225 126 Q245 155 265 172" stroke="#d4af37" stroke-width="3" fill="none" stroke-linecap="round"/>
                             </g>
 
-                            <!-- Sign: DON'T DISTURB • Newly Married -->
                             <g transform="translate(95, 134)">
-                                <rect x="0" y="0" width="230" height="58" rx="10" fill="#fffdf9" stroke="#c59b27" stroke-width="3.5" filter="drop-shadow(0 6px 12px rgba(130,100,30,0.25))"/>
-                                <rect x="5" y="5" width="220" height="48" rx="7" fill="none" stroke="#c59b27" stroke-width="1" stroke-dasharray="4 2"/>
-                                <text x="115" y="24" text-anchor="middle" fill="#8c6710" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="16" letter-spacing="1.5">DON'T DISTURB</text>
-                                <text x="115" y="46" text-anchor="middle" fill="#4a3e2e" font-family="'Great Vibes', cursive" font-size="24">Newly Married ♥</text>
+                                <rect x="0" y="0" width="230" height="58" rx="6" fill="#fffdf9" stroke="#c59b27" stroke-width="3.5" filter="drop-shadow(0 6px 12px rgba(130,100,30,0.25))"/>
+                                <rect x="5" y="5" width="220" height="48" rx="4" fill="none" stroke="#c59b27" stroke-width="1" stroke-dasharray="4 2"/>
+                                <text x="115" y="24" text-anchor="middle" fill="#785708" font-family="'Cinzel Decorative', serif" font-weight="700" font-size="13" letter-spacing="1.5">DON'T DISTURB</text>
+                                <text x="115" y="46" text-anchor="middle" fill="#2c241b" font-family="'Great Vibes', cursive" font-size="24">Newly Married ♥</text>
                             </g>
                         </svg>
                     </div>
@@ -1204,9 +1289,13 @@
 
     </main>
 
-    <!-- YouTube IFrame API for https://youtu.be/FoCG-WNsZio?si=VUZk7LrijgfV1xpO -->
+    <!-- YouTube IFrame API for Mariage d'Amour - Paul de Senneville || Jacob's Piano (FoCG-WNsZio) -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        var SHEET_WEB_APP_URL = "PASTE_YOUR_GOOGLE_SHEET_URL_HERE";
+        var urlParams = new URLSearchParams(window.location.search);
+        var guestTag = urlParams.get('g') || 'رابط عام';
+
         var ytPlayer;
         var ytReady = false;
         var isPlaying = false;
@@ -1216,12 +1305,12 @@
             ytPlayer = new YT.Player('yt-player', {
                 height: '2',
                 width: '2',
-                videoId: 'Jy5XeFxiqvs', // https://youtu.be/FoCG-WNsZio?si=VUZk7LrijgfV1xpO)
+                videoId: 'FoCG-WNsZio', // Mariage d'Amour - Paul de Senneville || Jacob's Piano
                 playerVars: {
                     'autoplay': 0,
                     'controls': 0,
                     'loop': 1,
-                    'playlist': 'Jy5XeFxiqvs',
+                    'playlist': 'FoCG-WNsZio',
                     'playsinline': 1
                 },
                 events: {
@@ -1236,16 +1325,23 @@
             });
         }
 
-        // Load direct audio backup for mobile browsers that restrict background YouTube iframes
+        // Load direct audio backup of Mariage d'Amour for mobile browsers that restrict background YouTube iframes
         async function loadBackupAudio() {
-            try {
-                var res = await fetch('https://itunes.apple.com/search?term=' + encodeURIComponent('Amr Diab El Leila') + '&media=music&entity=song&limit=5');
-                var data = await res.json();
-                if (data.results && data.results.length > 0) {
-                    bgAudio.src = data.results[0].previewUrl;
-                    bgAudio.load();
-                }
-            } catch (e) {}
+            var queries = [
+                'https://itunes.apple.com/search?term=' + encodeURIComponent("Jacob's Piano Mariage d'Amour") + '&media=music&entity=song&limit=5',
+                'https://itunes.apple.com/search?term=' + encodeURIComponent("Mariage d'Amour Paul de Senneville") + '&media=music&entity=song&limit=5'
+            ];
+            for (var i = 0; i < queries.length; i++) {
+                try {
+                    var res = await fetch(queries[i]);
+                    var data = await res.json();
+                    if (data.results && data.results.length > 0 && data.results[0].previewUrl) {
+                        bgAudio.src = data.results[0].previewUrl;
+                        bgAudio.load();
+                        return;
+                    }
+                } catch (e) {}
+            }
         }
         loadBackupAudio();
 
@@ -1257,7 +1353,6 @@
                 ytPlayer.playVideo();
                 isPlaying = true;
             }
-            // If YouTube hasn't started playing within 900ms on mobile, play direct audio stream
             setTimeout(function() {
                 if (!ytPlayer || typeof ytPlayer.getPlayerState !== 'function' || ytPlayer.getPlayerState() !== 1) {
                     if (bgAudio.src && bgAudio.paused) {
@@ -1290,6 +1385,15 @@
             cover.style.visibility = 'hidden';
             seal.style.visibility = 'visible';
             seal.style.opacity = '1';
+
+            if (!sessionStorage.getItem('view_logged') && SHEET_WEB_APP_URL.startsWith('http')) {
+                sessionStorage.setItem('view_logged', 'true');
+                var viewData = new FormData();
+                viewData.append('type', 'view');
+                viewData.append('tag', guestTag);
+                viewData.append('device', navigator.userAgent);
+                fetch(SHEET_WEB_APP_URL, { method: 'POST', body: viewData, mode: 'no-cors' }).catch(function(){});
+            }
         }
 
         function openInvitationDeck() {
@@ -1321,7 +1425,7 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // RSVP Submission -> hosammilan@gmail.com + CC roaajomaa908@gmail.com
+        // RSVP Submission -> Google Sheet + Hosamassadi@gmail.com + CC roaajomaa908@gmail.com
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             var form = this;
@@ -1329,14 +1433,27 @@
             btn.textContent = 'جاري الإرسال...';
             btn.disabled = true;
 
-            var formData = new FormData(form);
-            formData.append('_subject', 'تأكيد حضور جديد - زفاف رؤى وحسام');
-            formData.append('_cc', 'roaajomaa908@gmail.com');
-            formData.append('_captcha', 'false');
+            var guestName = form.querySelector('[name="الاسم_الكريم"]').value;
+            var brideMsg = form.querySelector('[name="رسالة_للعروسة"]').value;
 
-            fetch('https://formsubmit.co/ajax/hosammilan@gmail.com', {
+            if (SHEET_WEB_APP_URL.startsWith('http')) {
+                var sheetData = new FormData();
+                sheetData.append('type', 'rsvp');
+                sheetData.append('name', guestName);
+                sheetData.append('message', brideMsg);
+                sheetData.append('tag', guestTag);
+                fetch(SHEET_WEB_APP_URL, { method: 'POST', body: sheetData, mode: 'no-cors' }).catch(function(){});
+            }
+
+            var emailData = new FormData(form);
+            emailData.append('الرابط_الخاص', guestTag);
+            emailData.append('_subject', 'تأكيد حضور جديد - زفاف رؤى وحسام (' + guestName + ')');
+            emailData.append('_cc', 'roaajomaa908@gmail.com');
+            emailData.append('_captcha', 'false');
+
+            fetch('https://formsubmit.co/ajax/Hosamassadi@gmail.com', {
                 method: 'POST',
-                body: formData,
+                body: emailData,
                 headers: { 'Accept': 'application/json' }
             })
             .then(function() {
@@ -1349,11 +1466,11 @@
             });
         });
     </script>
-<script>
-  window.goatcounter = {
-    path: function(p) { return location.pathname + location.search; }
-  };
-</script>
-<script data-goatcounter="https://roaa-hosam.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script>
+      window.goatcounter = {
+        path: function(p) { return location.pathname + location.search; }
+      };
+    </script>
+    <script data-goatcounter="https://roaa-hosam.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
